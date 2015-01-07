@@ -1,0 +1,744 @@
+
+<!-- saved from url=(0032)http://www.kesiev.com/noribasic/ -->
+<!--
+Noribasic Copyright 2005 KesieV. License:
+
+"do what you want but pray for our almighty god #c64"
+
+
+Game Copyright 1987-2013 Viljo Viitanen. License: CC BY-NC-SA 3.0
+
+
+-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+	var BASIC_h=25;
+	var BASIC_w=40;
+	var BASIC_s=10;
+	var BASIC_bg="#4040e0";
+	var BASIC_fg="#a0a1fe";
+	var BASIC_sprites=8;
+</script>
+
+
+	<title>
+		KAAPO NIEMISEN SEIKKAILUT
+	</title>
+	<style>
+@font-face {
+	 font-family: "c64";
+	 src: url("font/PetMe64.ttf") format("truetype");
+
+}
+		TD { font-family:sans-serif;font-size:11px}
+		INPUT { font-family:sans-serif;font-size:11px}
+		.screen { table-layout:fixed;}
+		.cell { font-family:c64;font-size:8px; }
+		BUTTON { width: 40px; height: 40px;}
+
+	</style>
+</head>
+
+<body onkeydown="keypress(event.keyCode)" onkeyup="keypress(0)" onload="BASIC_onload()" leftmargin="0" topmargin="0" bottommargin="0" rightmargin="0">
+<script>
+var prevkey=0;
+var preventrepeat=-1;
+var waitingforcycle=0;
+function keypress(code) {
+  if ((waitingforcycle==1) && (code==0)) {
+    prevkey=code;
+    return;
+  }
+  if (code==-1) {
+    preventrepeat=prevkey
+    BASIC_inkey=0;
+    return;
+  }
+  if (code==0) {
+    preventrepeat=-1
+    BASIC_inkey=0;
+  }
+  if (preventrepeat!=code) {
+    preventrepeat=-1
+    BASIC_inkey=code;
+  }
+  prevkey=code;
+}
+</script>
+
+		<table cellpadding="0" cellspacing="0" border="0" width="480">
+			<tbody><tr>
+			<tr><td bgcolor="#a0a1fe" height="25"></td></tr>
+			<tr>
+				<td bgcolor="#a0a1fe" height="260" valign="top">
+					<div id="bounds" style="overflow: hidden; position: absolute; left: 23px; height: 200px; width: 450px;" class="screen">
+						<script>
+							for (scj=0;scj<BASIC_sprites;scj++) {
+								document.write("<div id=sprite_"+scj+" style=\"overflow:hidden;position:absolute;visibility:hidden\"><img id=img_"+scj+"></div>");
+							}
+						</script><div id="sprite_0" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_0"></div><div id="sprite_1" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_1"></div><div id="sprite_2" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_2"></div><div id="sprite_3" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_3"></div><div id="sprite_4" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_4"></div><div id="sprite_5" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_5"></div><div id="sprite_6" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_6"></div><div id="sprite_7" style="overflow:hidden;position:absolute;visibility:hidden"><img id="img_7"></div>
+						<table cellpadding="0" cellspacing="0" border="0">
+							<script>
+								for (prni=0;prni<BASIC_h;prni++) {
+									document.write("<tr height="+BASIC_s+">");
+									for (scj=0;scj<BASIC_w;scj++) {
+										document.write("<td class=\"cell\" id=\"cell_"+scj+"_"+prni+"\" width=\""+BASIC_s+"\" align=middle bgcolor="+BASIC_bg+"><span id=\"val_"+scj+"_"+prni+"\"><font color="+BASIC_fg+">#</font></span></td>");
+									}
+									document.write("</tr>");
+								}
+							</script>
+						</table>
+					</div>
+				</td>				
+			</tr>
+			<tr><td bgcolor="#a0a1fe" height="25"></td></tr>
+			<tr><td height="50" bgcolor="#cccccc">
+				<table cellpadding="2" cellspacing="0" border="0">
+				<tbody><tr>
+					<td>
+					</td>
+					<td colspan="3">
+						<input type="text" style="width:246px;visibility:hidden" id="curline" readonly="">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div><img src="./Noribasic_files/keyboard.gif" title="Keyboard" border="0"></div>
+					</td>
+					<td>
+						<input type="text" style="width:198px" id="inputbox" onkeydown="javascript:if (event.keyCode==13) BASIC_postinput();" disabled="">
+					</td>
+					<td>
+						<div><img style="cursor:pointer" title="Run program" onclick="BASIC_run()" src="./Noribasic_files/run.gif" border="0"></div>
+					</td>
+					<td>
+						<div><img style="cursor:pointer" title="Stop program" onclick="BASIC_break()" src="./Noribasic_files/runstop.gif" border="0"></div>
+					</td>
+				</tr>
+				</tbody></table>
+			</td></tr>
+			<tr>
+				<td bgcolor="#a0a1fe">
+"Kaapo Niemisen Seikkailut" copyright 1987-2013 Viljo Viitanen.
+<div id="keyboard" style="width: 100%; display:none">
+<div style="margin-left:10%; margin-right:10%; ">
+<script>
+function fakepress(key) {
+  keypress(48+key);
+  setTimeout("keypress(0)", 5 ); 
+}
+
+for (i=1; i<9; i++) {
+  document.write("<button onclick=\"fakepress("+i+")\">"+i+"</button>")
+}
+</script>
+</div>
+<p>
+<a href="javascript:showblurb()"><b>Hide onscreen keyboard</b></a>
+</div>
+<div id="blurb">
+<a href="javascript:showkeyboard()"><b>Show onscreen keyboard</b></a> for touchscreens
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fi"><img alt="Creative Commons -lisenssi" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">"Kaapo Niemisen seikkailut"</span> jonka tekijä on <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Viljo Viitanen</span> on lisensoitu <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fi">Creative Commons Nimeä-Epäkaupallinen-JaaSamoin 3.0 Muokkaamaton -lisenssillä</a>.
+<p>
+Game ported from original C64 basic to NoriBasic - A Basic interpreter written in javascript.
+By KesieV - © 2005. License "do what you want but pray for our almighty god #c64".
+Some NoriBasic modifications for this game by Viljo Viitanen. Game should work at least on Internet Explorer 10, Chrome and Firefox.
+<p>
+C64 truetype font by Kreative Korporation - <a href="font/FreeLicense.txt">license</a>
+<p>
+<a href="uusi.txt">Noribasic source for the game</a>
+<p>
+Original source, converted with VICE petcat tool from .prg files:
+<a href="1.txt">Part 1</a> 
+<a href="2.txt">Part 2</a>
+(program was too big to fit in basic memory so it was split in two .prg files).
+The original game start screen 
+<a href="startscreen.png">looks like this</a> (captured from the VICE emulator).
+<p>
+History: sometime in 1987 - the original game made<br>
+9 October 2013 - transferred the game from floppies to emulator<br>
+10 October 2013 first published version of the javascript port<br>
+10 October 2013 (later) fixed porting errors, made sure the game can be completed<br>
+<p>
+Thanks to Miika Tervo (co-author of the game), KesieV for NoriBasic, Opencbm contributors and VICE team!
+<p>
+Contact: <a href="https://twitter.com/viljoviitanen">twitter.com/viljoviitanen</a>
+</div>
+<script>
+function showblurb() {
+  document.getElementById("blurb").style.display="block"
+  document.getElementById("keyboard").style.display="none"
+}
+function showkeyboard() {
+  document.getElementById("blurb").style.display="none"
+  document.getElementById("keyboard").style.display="block"
+}
+</script>
+				</td>
+			</tr>
+			<tr><td height="10"></td></tr>
+		</tbody></table>
+<textarea id="prog" style="display:none"></textarea>
+
+<script>
+//
+// Implemented
+// Operators:
+// + - * / > < <= >= <> AND OR NOT BITOR BITAND BITXOR
+// Functions:
+// ASC CHR$ LEFT$ RIGHT$ RND() ERR() ABS COS SIN TAN ACOS ASIN ATAN LOG MOD SQR TAN POW INKEY() MID$ LEN
+// noribasic:
+// SPRON SPRMOVE SPROFF SPRCLS SPRLOAD SPRCOLLIDE()
+// Commands:
+// PRINT CLS END REM SLEEP TRAP DIM INPUT GOTO GOSUB STOP DATA READ RESTORE GOTOXY SETCOLOR RETURN IF
+// 
+// Cycles:
+// FOR x$=xx TO xx STEP xx // NEXT
+//
+// Arrays
+//
+
+var operators="+-*/,; ";
+var logical="><=";
+var letters="QWERTYUIOPASDFGHJKLZXCVBNM$";
+
+var BASIC_stk=new Array(10);
+var BASIC_stki=new Array(10);
+for (ai=0;ai<10;ai++) { BASIC_stk[ai]=new Array(100);BASIC_stki[ai]=0; }
+
+var BASIC_vars=new Array;
+var BASIC_source=new Array;
+var BASIC_linestack="";
+var BASIC_separateme="";
+var BASIC_error="";
+var BASIC_inkey=0;
+
+var BASIC_source;
+var BASIC_curline;
+var BASIC_ender;
+var BASIC_stepped;
+var BASIC_nexted;
+var BASIC_line;
+var BASIC_trap;
+var BASIC_lasterror;
+var BASIC_data;
+var BASIC_datahead;
+var BASIC_databottom;
+
+function BASIC_load(src,comment) {
+	document.getElementById("prog").value=src;
+}
+
+function BASIC_cls() {
+	for (clsi=0;clsi<BASIC_h;clsi++) {		
+		for (clsj=0;clsj<BASIC_w;clsj++) {
+			document.getElementById("cell_"+clsj+"_"+clsi).innerHTML="";
+			document.getElementById("cell_"+clsj+"_"+clsi).bgColor=BASIC_bg;
+		}
+	}
+	BASIC_x=0;
+	BASIC_y=0;
+}
+
+function BASIC_onload() {
+	document.getElementById("bounds").style.height=(BASIC_h*BASIC_s);
+	document.getElementById("bounds").style.width=(BASIC_w*BASIC_s);
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "uusi.txt", true);
+	xhr.onreadystatechange = function() {
+  		if (xhr.readyState === 4 /* complete */) {
+    			if (xhr.status === 200) {
+            			BASIC_load(xhr.responseText,'');
+            			BASIC_run();
+        		}
+    		}
+	}
+	xhr.send();
+}
+
+function BASIC_scroll() {
+		for (scrolli=0;scrolli<BASIC_h;scrolli++) {		
+			for (scrollj=0;scrollj<BASIC_w;scrollj++) {
+				if (scrolli==BASIC_h-1) {
+					document.getElementById("cell_"+scrollj+"_"+scrolli).innerHTML="";
+					document.getElementById("cell_"+scrollj+"_"+scrolli).bgColor=BASIC_bg;
+				} else {
+					document.getElementById("cell_"+scrollj+"_"+scrolli).innerHTML=document.getElementById("cell_"+scrollj+"_"+(scrolli+1)).innerHTML;
+					document.getElementById("cell_"+scrollj+"_"+scrolli).bgColor=document.getElementById("cell_"+scrollj+"_"+(scrolli+1)).bgColor;
+				}
+			}
+		}
+	}
+
+function BASIC_sprcls() {
+		for (clsj=0;clsj<BASIC_sprites;clsj++) {
+			document.getElementById("sprite_"+clsj).style.visibility="hidden";
+		}
+}
+
+function BASIC_cr() {
+	BASIC_x=0;
+	BASIC_y++;
+	if (BASIC_y>=BASIC_h) {
+		BASIC_scroll();
+		BASIC_y=BASIC_h-1;
+	}
+}
+
+function BASIC_print(val) {
+	for (prni=0;prni<val.length;prni++) {
+		if (val.charAt(prni)=="d") {
+			BASIC_cr();
+		}
+		else if (val.charAt(prni)=="u") {
+			if(BASIC_y>0) BASIC_y--;
+		}
+		else if (val.charAt(prni)=="c") {
+			BASIC_cls();
+		}
+		else if (val.charAt(prni)=="h") {
+			BASIC_x=0;
+			BASIC_y=0;
+		}
+		else if (val.charAt(prni)=="\n") {
+			BASIC_cr();
+		} else {
+			document.getElementById("cell_"+BASIC_x+"_"+BASIC_y).innerHTML="<font color="+BASIC_fg+">"+val.charAt(prni)+"</font>";
+			//XXX
+		        if (val.charAt(prni)=="^") {
+			  document.getElementById("cell_"+BASIC_x+"_"+BASIC_y).innerHTML="<font color="+BASIC_fg+">\"</font>";
+			}
+			document.getElementById("cell_"+BASIC_x+"_"+BASIC_y).bgColor=BASIC_bg;
+			BASIC_x++;
+			if (BASIC_x>=BASIC_w) { BASIC_cr();}
+		}
+	}
+}
+
+function dumpstack(id,inte) { zzz="";for (ix=0;ix<BASIC_stki[id];ix++) { zzz+="["+BASIC_stk[id][ix].length+"]"+BASIC_stk[id][ix]+"\n"; } alert("stack "+BASIC_stki[id]+":\n"+zzz+"\n\n"+inte); }
+//function stack(stkid,op,wh) {	if (op=="push") { BASIC_stk[stkid][BASIC_stki[stkid]]=wh; BASIC_stki[stkid]++; dumpstack(stkid,op+" "+wh); return ""} else { if (BASIC_stki[stkid]>0) { BASIC_stki[stkid]--; dumpstack(stkid,op+" "+wh); return BASIC_stk[stkid][BASIC_stki[stkid]]; } else { BASIC_error="Stack overflow"; return ""} } }
+function stack(stkid,op,wh) {	if (op=="push") { BASIC_stk[stkid][BASIC_stki[stkid]]=wh; BASIC_stki[stkid]++; return ""} else { if (BASIC_stki[stkid]>0) { BASIC_stki[stkid]--; return BASIC_stk[stkid][BASIC_stki[stkid]]; } else { BASIC_error="Stack overflow"; return ""} } }
+function getvar(value) { if (value.charAt && value.charAt(value.length-1)=="$") { retme=BASIC_vars[firstp(value.toUpperCase())]; if (parseFloat(retme)==retme) { return retme; } else { return "\""+retme+"\""; } } else { return value; } }
+function setvar(value,toset) { BASIC_vars[firstp(value.toUpperCase())]=toset; }
+function stripquotes(ret) { if (ret.charAt && ret.charAt(0)=="\"") { ret=ret.substr(1,ret.length-2); } return ret; }
+function stringpop(sep) { sp=BASIC_separateme.toUpperCase().indexOf(sep.toUpperCase());if (sp>=0) { ret=trim(BASIC_separateme.substr(0,sp));BASIC_separateme=BASIC_separateme.substr(sp+sep.length);return ret; } else { return ""; } }
+
+function linepop() { 
+	if (BASIC_linestack.indexOf(" ")>=0) { 
+		ret=trim(BASIC_linestack.substr(0,BASIC_linestack.indexOf(" ")));
+		if (ret=parseInt(ret)) {
+			BASIC_linestack=BASIC_linestack.substr(BASIC_linestack.indexOf(" ")+1);
+			return ret; 		
+		} else {
+			return BASIC_curline;
+		}
+	} else { return BASIC_curline; } 
+}
+function trim(str) { if(str && str.replace) { return str.replace(/^\s*|\s*$/g,""); } else { return str; } }
+function firstp(str) { return str.substr(0,str.length-1); }
+function lastis(str,wh) { if (str && str.charAt && (str.charAt(str.length-1)==wh)) { return true; } else {return false; } }
+function commandpop() { 
+	ret="";pi=0;opened=0;apici=0;
+	while (((opened!=0||apici!=0)||(BASIC_linestack.charAt(pi)!=":"))&&(pi<BASIC_linestack.length)) {
+		if (BASIC_linestack.charAt(pi)=="\"") { apici=(apici+1)%2; }
+		if (apici==0) {
+			if (BASIC_linestack.charAt(pi)=="(") { opened++; }
+			if (BASIC_linestack.charAt(pi)==")") { opened--; }
+		}
+		pi++;
+	}
+	if (opened==0&&apici==0) {	
+		ret=BASIC_linestack.substr(0,pi);		
+		BASIC_linestack=BASIC_linestack.substr(pi+1);
+	} else {
+		ret="";
+		BASIC_error="Wrong expression";
+	}
+	return trim(ret);
+}
+
+function search(from,what,step,mode) {
+	retu=false;
+	what=what.toUpperCase();
+	bck=BASIC_line;
+	BASIC_curline=from;
+	while ((BASIC_curline>=0) && (BASIC_curline<BASIC_source.length) && !retu) {
+		BASIC_linestack=BASIC_source[BASIC_curline]+":"; 
+		BASIC_line=linepop();		
+		if (mode=="line") { 
+			if (BASIC_line==what) { retu=true; break; }
+		} else {
+			while (BASIC_linestack!="") { 
+				BASIC_separateme=commandpop();
+				if (BASIC_separateme.substr(0,what.length).toUpperCase()==what.toUpperCase()) {
+					BASIC_linestack=BASIC_separateme+":"+BASIC_linestack; 
+					retu=true; break;
+				}
+			}
+		}
+		if (!retu) { BASIC_curline+=step}
+	}
+	if (!retu) { BASIC_line=bck;BASIC_error="Line not found";	}
+	return ret;                                                                       
+}
+
+function wordpop() { 
+	ret="";pi=0;
+	while (letters.indexOf(BASIC_separateme.charAt(pi).toUpperCase())>=0 && pi<=BASIC_separateme.length) {
+		ret+=BASIC_separateme.charAt(pi);
+		pi++;
+	}
+	BASIC_separateme=BASIC_separateme.substr(pi);
+	return ret;
+}
+
+function calc(exp,special) {
+	calci=0; cur="";
+	exp="("+trim(exp)+")";
+	args=new Array(10);
+	opened=false;BASIC_stki[0]=0;
+	while (calci<exp.length) {
+		cc=exp.charAt(calci);
+		if (((operators+logical).indexOf(cc)>=0) && !opened) { 
+			if(cur){cur=stack(0,"push",cur);}
+			if (logical.indexOf(exp.charAt(calci+1))>=0) { cc+=exp.charAt(calci+1);calci++; }
+			if (cc!=" ") stack(0,"push",cc); 
+		} else if ((cc==")") && !opened) {		
+			if(cur){cur=stack(0,"push",cur);}
+			ende=0;
+			argcnt=0;
+			while (ende==0) {
+				pop=stack(0,"pop","");
+				if (lastis(pop,"(")) {					
+					op=pop.toUpperCase();
+					pop="";
+				} else {
+					op=trim(stack(0,"pop","").toUpperCase());
+				}
+				if (op=="=") { op="=="; } // HACK FOR EVAL
+				if (op=="<>") { op="!="; } // HACK FOR EVAL
+				if (op=="NOT") { op="!"; } // HACK FOR EVAL
+				if (op=="AND") { op="&&"; } // HACK FOR EVAL
+				if (op=="OR") { op="||"; } // HACK FOR EVAL
+				if (op=="BITOR") { op="|"; } // HACK FOR EVAL
+				if (op=="BITAND") { op="&"; } // HACK FOR EVAL
+				if (op=="BITXOR") { op="^"; } // HACK FOR EVAL
+				if ((op.length>1) && lastis(op,"(")) {
+					args[argcnt]=stripquotes(getvar(pop));
+					argcnt++;				
+					// function
+					if (op=="SQR(") { op="SQRT("; } // HACK FOR EVAL
+					switch(op.toUpperCase()) {
+						case "SPC(": { stack(0,"push",Array(1+parseInt(args[0])).join(" ")); break; }
+						case "VAL(": { stack(0,"push",parseFloat(args[0])); break; }
+						case "ASC(": { stack(0,"push",args[0].charCodeAt(0)); break; }
+						//XXX
+						case "CHR$(": { stack(0,"push","^"); break; }
+						case "CHR$(": { stack(0,"push",String.fromCharCode(parseInt(args[0]))); break; }
+						case "LEFT$(": { stack(0,"push",String(args[1]).substring(0,parseInt(args[0]))); break; }
+						case "RIGHT$(": { l=String(args[1]).length;stack(0,"push",String(args[1]).substring(l-parseInt(args[0]),l)); break; }
+						case "MID$(": { stack(0,"push",String(args[2]).substring(parseInt(args[1]),parseInt(args[0])+parseInt(args[1])-1)); break; }						
+						case "LEN(": { stack(0,"push",String(args[0]).length); break; }
+						case "RND(": { stack(0,"push",Math.round(Math.random()*1000));break; }
+						case "ERR(": { stack(0,"push",BASIC_lasterror); break}
+						case "MOD(": { stack(0,"push",parseInt(args[1])%parseInt(args[0])); break}
+						case "$GOTOXY$(": { BASIC_x=args[1];BASIC_y=args[0]; break}						
+						case "$SETCOLOR$(": { BASIC_fg=args[1];BASIC_bg=args[0]; break}						
+						case "$DATA$(": { for(x=argcnt-1;x>=0;x--) { BASIC_data[BASIC_databottom]=args[x]; BASIC_databottom++; } break}						
+						case "$SPRON$(": { document.getElementById("sprite_"+args[0]).style.visibility="visible"; break}						
+						case "$SPROFF$(": { document.getElementById("sprite_"+args[0]).style.visibility="hidden"; break}						
+						case "$SPRLOAD$(": { document.getElementById("img_"+args[1]).src=args[0]; break}						
+						case "SPRCOLLIDE(": {
+							sl=new Array(1);
+							st=new Array(1);
+							sh=new Array(1);
+							sw=new Array(1);
+							for (ip=0;ip<2;ip++) {							
+								sl[ip]=parseInt(document.getElementById("sprite_"+args[ip]).style.left);
+								st[ip]=parseInt(document.getElementById("sprite_"+args[ip]).style.top);
+								sh[ip]=parseInt(document.getElementById("img_"+args[ip]).height);
+								sw[ip]=parseInt(document.getElementById("img_"+args[ip]).width);
+							}								
+					 		stack(0,"push",((sl[0] <= sl[1]+sw[1]) && (sl[0]+sw[0] >= sl[1]) && (st[0] <= st[1]+sh[1]) && (st[0]+sh[0] >= st[1])));
+					 		break;
+						}
+						case "$SPRMOVE$(": { 
+							document.getElementById("sprite_"+args[2]).style.left=args[1]; 
+							document.getElementById("sprite_"+args[2]).style.top=args[0]; 
+							break
+						}
+						case "POW(": { stack(0,"push",Math.pow(parseInt(args[1]),parseInt(args[0]))); break}
+						case "INKEY(": { stack(0,"push",BASIC_inkey); keypress(-1); break}
+						case "ABS(": // HACK FOR EVAL
+						case "SIN(":
+						case "COS(":
+						case "TAN(":
+						case "ASIN(":
+						case "ACOS(":
+						case "ATAN(":
+						case "SQRT(":
+						case "LOG(":{ stack(0,"push",eval("Math."+op.toLowerCase()+args[0]+")"));break}
+						default: {
+							if (op.charAt(op.length-2)=="$") { // is probably an array
+								vaname=op.substr(0,op.length-2).toUpperCase();
+								if (special=="dim") { // dimming
+									siz=1;sizstr="";
+									for (ix=0;ix<argcnt;ix++) { siz*=parseInt(args[ix]); sizstr+=args[ix]+",";}
+									BASIC_vars[vaname]=new Array(siz);
+									for (u=0;u<siz;u++) { BASIC_vars[vaname][u]=0; }
+									BASIC_vars[vaname+"$SIZES"]=sizstr+siz;
+										stack(0,"push","foo");
+								} else { // getting
+									sizes=BASIC_vars[vaname+"$SIZES"].split(",");
+									pos=0;
+									for (ix=0;ix<argcnt-1;ix++) { pos+=parseInt(args[ix])*(parseInt(sizes[ix+1]));}		
+									pos+=parseInt(args[argcnt-1]);
+									if (pos>=sizes[argcnt]) {
+										BASIC_error="Invalid index";
+										stack(0,"push","0");									
+									} else {
+										if (special=="pos") {
+											stack(0,"push",pos);
+										} else {
+											stack(0,"push","\""+BASIC_vars[vaname][pos]+"\"");
+										}									
+									}
+								}
+							} else {
+								BASIC_error="Syntax error";
+							}
+						}
+					}
+					ende=1;
+				} else if (op==",") {
+					args[argcnt]=stripquotes(getvar(pop));
+					argcnt++;				
+				} else if (op!="(") {
+					sec=stack(0,"pop","");
+					if (sec.charAt && (sec.charAt(sec.length-1)=="("||sec==",")) {
+						stack(0,"push",sec);
+						stack(0,"push",eval(op+getvar(pop)));
+					} else {
+						sec=getvar(sec);
+						pop=getvar(pop);
+						if ((op==";")&&(!sec.charAt||sec.charAt(0)!="\"")) { sec="\""+sec+"\""; }// HACK FOR EVAL
+						if ((op==";")&&(!pop.charAt||pop.charAt(0)!="\"")) { pop="\""+pop+"\""; }// HACK FOR EVAL
+						if (op==";") { op="+";} // HACK FOR EVAL
+						stack(0,"push",eval(sec+op+pop));						
+					}
+				} else {
+					stack(0,"push",pop);	
+					ende=1;
+				}
+			}
+		} else {
+			if (cc=="\"") { opened=!opened; } 
+			cur+=cc;
+			if ((cc=="(") && !opened) { cur=stack(0,"push",cur); }
+		}
+		calci++;
+	}
+	return stripquotes(getvar(stack(0,"pop","")));;
+}
+
+function BASIC_run() {
+	document.getElementById("curline").value="Starting...";
+	BASIC_sprcls();
+	BASIC_source=document.getElementById("prog").value.split("\n");
+	BASIC_data=new Array();
+	BASIC_datahead=0;
+	BASIC_databottom=0;
+	// Get data
+	for (ix=0;ix<BASIC_source.length;ix++) {
+			BASIC_linestack=BASIC_source[ix]+":"; 
+			BASIC_line=linepop();		
+			while (trim(BASIC_linestack)!="") {
+				BASIC_separateme=commandpop();
+				command=wordpop();
+				if (command.toUpperCase()=="DATA") {
+					calc("$DATA$("+BASIC_separateme+")");
+				}
+			}
+	}	
+	BASIC_bg="#4040e0";
+	BASIC_fg="#a0a1fe";
+	BASIC_cls();
+	BASIC_error="";
+	BASIC_linestack="";
+	BASIC_curline=-1;
+	BASIC_ender=false;
+	BASIC_stepped=0;
+	BASIC_nexted=0;
+	BASIC_trap=-1;
+	BASIC_lasterror="";
+	BASIC_inkey=0;
+	BASIC_cycle();
+}
+
+function BASIC_break() {	
+	if (BASIC_source[BASIC_curline]&&!BASIC_error) { 
+		BASIC_trap=-1;
+		BASIC_error="Break";
+		if (!document.getElementById("inputbox").disabled) {		
+			document.getElementById("inputbox").disabled=true;
+			BASIC_cycle();
+		}
+	}
+}
+
+function setvar_array(wh) {
+		BASIC_separateme=trim(BASIC_separateme)+"=";
+		command=wordpop();
+		args=trim(stringpop("="));
+		if (args) {
+			arpos=calc(command+args,"pos");
+			BASIC_vars[firstp(command.toUpperCase())][arpos]=wh;
+		} else {
+			setvar(command,wh);
+		}
+}
+
+function BASIC_postinput() {	
+		document.getElementById("inputbox").disabled=true;
+		document.getElementById("inputbox").blur();
+		temp=document.getElementById("inputbox").value;
+		temp=temp.toUpperCase();
+		BASIC_print(temp+"\n");
+		setvar_array(temp);
+		BASIC_cycle();
+}
+
+function BASIC_cycle() {
+        waitingforcycle=0;
+	sleep=5;
+	sleep=1;
+	schedule=true;
+	for (cycle=0;cycle<=BASIC_nexted;cycle++) {
+		while (trim(BASIC_linestack)=="") {
+			BASIC_curline=BASIC_curline+1;
+			if (BASIC_curline>=BASIC_source.length) { 
+				BASIC_ender=true;
+				break;
+			} else {
+				BASIC_linestack=BASIC_source[BASIC_curline]; 
+				BASIC_line=linepop();
+			}
+		}
+		BASIC_separateme=commandpop();
+	}
+	BASIC_nexted=0;
+	if (BASIC_error=="" && !BASIC_ender) {
+		document.getElementById("curline").value=BASIC_separateme;
+		command=wordpop();
+		lastchar=command.charAt(command.length-1);
+		if (lastchar=="$") {
+			args=trim(stringpop("="));
+			if (args) {
+				arpos=calc(command+args,"pos");
+				BASIC_vars[firstp(command.toUpperCase())][arpos]=calc(BASIC_separateme);
+			} else {
+				setvar(command,calc(BASIC_separateme));
+			}
+		} else {				
+			switch (command.toUpperCase()) {
+				case "RUN": { BASIC_run();break;}
+				case "DATA":
+				case "REM": { break; }
+				case "READ": {if (BASIC_datahead==BASIC_databottom) { BASIC_error="Out of data"; } else { setvar_array(BASIC_data[BASIC_datahead]);  BASIC_datahead++; } break;}
+				case "RESTORE": { BASIC_datahead=0; break;}
+				case "TRAP": { BASIC_trap=trim(BASIC_separateme); break; }
+				case "DIM": { calc(BASIC_separateme,"dim"); break; }
+				case "STOP": { BASIC_error="Stopped"; break;}
+				case "PRINT": { 
+					carr="\n";
+					if (BASIC_separateme.substr(BASIC_separateme.length-1)==";") {
+						BASIC_separateme=BASIC_separateme.substr(0,BASIC_separateme.length-1);						
+						carr="";
+					}
+					BASIC_print(calc(BASIC_separateme)+carr); 
+					break; 
+					}
+				case "INPUT": { BASIC_print("?");document.getElementById("inputbox").value="";document.getElementById("inputbox").disabled=false;document.getElementById("inputbox").focus(); schedule=false; break; }
+				case "CLS": { BASIC_cls();break;}
+				case "SPRON":
+				case "SPRLOAD":
+				case "SPROFF":
+				case "SPRMOVE":
+				case "SETCOLOR":
+				case "GOTOXY": { calc("$"+command.toUpperCase()+"$("+BASIC_separateme+")");break;}
+				case "END": { BASIC_ender=true; break;}
+				case "GOSUB": { stack(1,"push",BASIC_curline); search(0,trim(BASIC_separateme)+" ",1,"line"); break; }
+				case "GOTO": { search(0,trim(BASIC_separateme)+" ",1,"line"); break; }
+				case "SLEEP": { sleep=(parseInt(calc(BASIC_separateme))+1)*10; break; }
+				case "RETURN": { BASIC_curline=stack(1,"pop",""); break; }
+				case "SPRCLS": { BASIC_sprcls(); break; }
+				case "IF": {
+					condition=stringpop(" THEN ");
+					resif=calc(condition);		
+					if ((resif==true)||(resif=="true")||(parseInt(resif)>0)) { BASIC_linestack=BASIC_separateme+":"+BASIC_linestack; } else { BASIC_linestack=""; }
+					break;
+				}
+				case "FOR": { 
+					counter=stringpop("=");
+					from=parseInt(calc(stringpop(" TO ")));
+					to=stringpop(" STEP ");
+					if (to=="") { to=BASIC_separateme;step=1; } else { step=parseInt(calc(BASIC_separateme)); }
+					to=parseInt(calc(to));
+					if (BASIC_stepped==1) 
+					{ 
+						setvar(counter,parseInt(getvar(counter))+step);
+					} else {
+						setvar(counter,from);
+					}
+					curcounter=parseInt(getvar(counter));
+					if (((from <= to) && ((curcounter>to)||(curcounter<from))) || ((from >= to) && ((curcounter<to)||(curcounter>from)))) { search(BASIC_curline,"NEXT "+counter,1); BASIC_nexted=1}	
+					BASIC_stepped=0;
+					break;
+				}
+				case "NEXT": {
+					search(BASIC_curline,"FOR "+trim(BASIC_separateme)+"=",-1);
+					BASIC_stepped=1;
+					break;
+				}
+				default: {
+					BASIC_error="Syntax error";
+				}
+			}
+		}						
+		if (BASIC_curline<-1) { BASIC_error="Line not found"; }			
+		
+		
+	}
+	
+	if (BASIC_error) { 
+		if (BASIC_trap==-1) {
+			BASIC_print("?"+BASIC_error+" in "+BASIC_line); 
+			schedule=false;
+		} else {
+			BASIC_lasterror=BASIC_error;
+			BASIC_error="";
+			BASIC_linestack="";
+			search(0,trim(BASIC_trap)+" ",1,"line");
+			if (BASIC_error) { BASIC_trap=-1; } 
+			schedule=true;
+		}
+	}	
+	
+	if (BASIC_ender) { BASIC_print("READY."); schedule=false; }
+
+        waitingforcycle=1;
+	if (schedule) { setTimeout("BASIC_cycle()", sleep ); }
+	
+}
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37558265-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body></html>

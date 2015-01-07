@@ -1,0 +1,235 @@
+
+
+;/home/viljo/c64/3.kaapo part2.prg ==0801==
+    5 rem 3.kaapo osa2
+   10 r1=peek(49152):r2=peek(49153)
+   15 r1$=str$(r1):r2$=str$(r2)
+   20 ra$=r1$+r2$:ra=val(ra$):ifpeek(49154)=100thenra=ra*10
+   25 print"{clr}{down} kaapo niemisen seikkailut"
+   30 print"{down} sinulla on "ra" mk rahaa ."
+   35 gosub10000
+   40 print"{clr}{down} tulet ulos ravintolasta ja menet"
+   45 print"porscheesi . kello on 19.30 paikallista"
+   50 print"aikaa . mihin menet :"
+   55 print"1. police station"
+   60 print"2. blue oyster bar"
+   65 print"3. harold's"
+   70 print"4. mc donald's"
+   75 gosub11000
+   80 ifa$="1"then150
+   82 ifa$="2"then90
+   84 ifa$="3"then110
+   86 ifa$="4"then130
+   88 goto75
+   90 print"{clr}{down} menet blue oyster-nimiseen baariin ."
+   92 print" ( minusta tuntuu , ettet ole katsonut"
+   94 print" poliisiopistoja ... )
+   96 print" menet sis[[n ja ":gosub10000
+   97 print"{clr}   tii
+   98 print "      dit
+   99 print "         dit
+  100 print"            dit
+  101 print"dii            diiiii ...
+  102 print"{down} menit sis[[n paikalliseen homobaariin !"
+  103 print"{down} j[[t sinne tanssittamaan homoja yli"
+  104 print" kolmeksi tunniksi .":gosub10000
+  105 goto200
+  110 print"{clr}{down} menet harold's tavarataloon"
+  112 print"{down} ja teet muutamia her[teostoksia."
+  114 print"{down} niihin menee rahaa noin 50 puntaa ,"
+  116 print" eli noin 375 mk .":ra=ra-375
+  118 print"{down} sinulle j[i rahaa "ra" mk ."
+  120 goto200
+  130 print"{clr}{down} menet mc donald's hampurilaisbaariin."
+  132 print"{down} joistain kumman syyst[ ostat viidell["
+  134 print" punnalla ruokaa ( vaikka juuri tulit"
+  136 print" ravintolasta ) ."
+  138 print"{down} olet nyt 38 markkaa k\yhempi .":ra=ra-38
+  140 print" muuhun tarkoitukseen j[i rahaa"ra"mk ."
+  145 goto200
+  150 print"{clr}{down} menet pollariasemalle ."
+  152 print"{down}vihjaiset heille , mit[ metrotunnelissa"
+  154 print" tulee olemaan ."
+  156 print" poliisi ,joka on tiskin takana,sanoo:"
+  158 print" that could be the robbers what we have"
+  160 print" hunted over a year ! "
+  165 po=1:print" poliisi lis[[ viel[ :"
+  168 print" thanks , pal .ja mutisee viel["
+  170 print" menness[[n : oh great ! gosh! oh my,"
+  172 print" this time we'll get'em !!"
+  175 gosub10000
+  180 print"{clr}{down} l[hdet pois poliisiasemalta tyyty-"
+  185 print" v[isin mielin ."
+  190 print"{down} k[yt my\s viereisess[ baarissa otta-"
+  195 print" massa shampanjacoctailin ."
+  200 gosub 10000
+  202 print"{clr}{down} ostat lehtikojusta lehden ja"
+  205 print" menet l[ntisen lontoon toiseen"
+  210 print" metrotunneliin , siis roistojen kohta-"
+  215 print" uspaikalle venttailemaan ."
+  220 gosub10000
+  225 print"{clr}{down} alat lukea lehte[ ."
+  230 print"{down} the iran-gate :"
+  235 print" did reagan really know what happened ?"
+  240 print"{down} tomorrow's weather :"
+  245 print" sunny and warm "
+  250 print"{down} arsenal - chelsea : draw  2-2 !"
+  255 print"{down} a jewel store ' the diamond ' is"
+  260 print" robbed . robbers get 70 watches and"
+  265 print" over 100 gold rings ."
+  270 gosub10000
+  275 print"{clr}{down}katsot kelloasi.se on 23.15 paikallista"
+  280 print"aikaa ."
+  285 print"{down}{down} n[et , kuinka metrosta tulee joukko"
+  290 print" ep[ilytt[van n[k\isi[ tyyppej[ ."
+  295 gosub10000
+  305 print"{clr}{down} odottelet v[h[n aikaa ."
+  310 print"{down}liukuportaita pitkin tulee isonen[inen"
+  315 print" tyyppi mukanaan lyhyt ja lihava eukko."
+  320 print"{down} muistelet ,ett[ olet n[hnyt eukon"
+  325 print" jossain ..."
+  330 print"{down}{down} seh[n on eveliina kanttura,artturin"
+  335 print" vaimo !! "
+  340 print"{down} h[n palkkasi sinut t[h[n teht[v[[n ."
+  345 gosub10000
+  350 print"{clr}{down} kello on 23.30 ."
+  355 print"{down} metrosta tulee ranskalaisen n[k\inen"
+  360 print" mies.sama,joka oli norjassa ."
+  365 print" samalla huomaat toisenkin asian ."
+  370 print" isonen[inenkin mies oli norjassa ."
+  375 print" seuraat tapahtumien kehityst[ ."
+  380 print" tajuat , ett[ ranskalaisen n[k\inen"
+  385 print" mies on jean de'tappakov , siis hermo-"
+  390 print" kaasun ostaja !"
+  395 gosub10000:ifpo=1then450
+  400 print"{clr}{down} yht'[kki[ joku miehist[ tunnistaa"
+  402 print" sinut ."
+  404 print" pari korstoa k[velee sinua kohti ."
+  406 print" l[hdet k[velem[[n poisp[in ,"
+  408 print"{down} mutta miehet ottavat sinut kiinni .":goto20000
+  410 print"{down} he viev[t sinut pime[[n nurkkaan ja"
+  415 print" veitsi v[l[ht[[ ."
+  420 print" sin[ kuolet . "
+  430 goto20000
+  450 print"{clr}{down} yht[kki[ liukuportaita tulee noin"
+  455 print" parikymment[ poliisia ."
+  460 print"{down}{down} v[h[n ajan p[[st[ koko tunneli on"
+  465 print" yht[ sekasortoa ."
+  470 print"{down} saat kaapattua eveliina kantturan "
+  475 print" mukaasi ja h[ivytte metrotunnelista ."
+  480 gosub10000
+  485 print"{clr}{down} eveliina kysyy ,ett[ kuka olet ."
+  490 print" vastaat h[nelle ,ett[ olet etsiv[ ,"
+  495 print" jonka eveliina palkkasi ."
+  500 print"{down} ajatte porschellasi hotelliin ."
+  505 gosub10000
+  510 print"{clr}{down} eveliina antaa sinulle 10000 markan"
+  515 print" maksum[[r[yksen ja menee varaamaan"
+  520 print" itselleen huoneen ."
+  525 gosub 10000
+  530 print"{clr}{down}"
+  531 print"    n       i         o      ]
+  532 print"  n   e   s     o   k   o    ]
+  533 print"o   {$a0}   k         l       n  .
+  535 print"{down} ratkaisit teht[v[si ."
+  540 print"{down}{down}{down} mutta !!!":print"   juttu ei ole viel[ loppunut ...":gosub10000
+  550 print"{clr}{down} olet jo takaisin kotonasi ."
+  555 print"{down} k[yt lunastamassa maksum[[r[yksesi ."
+  560 ra=ra+10000:gosub10000
+  565 print"{clr}{down} rahatilanteesi :"ra"mk ."
+  570 gosub 10000
+  575 print"{clr}{down} ding dong":fora=1to2000:next:print"{clr}"
+  580 print"{down}{down}{down} ovikellosi soi ."
+  585 print"{down} avaat oven ja ovella seisoo satu ."
+  590 printchr$(34)"tuletko lounaalle ?"chr$(34)" h[n kysyy ."
+  595 print"{down}mit[ teet :"
+  600 print"1. menet sadun mukaan"
+  605 print"2. et mene sadun mukaan"
+  610 gosub11000
+  615 ifa$="1"then650
+  620 ifa$="2"then750
+  625 goto610
+  650 print"{clr}{down} menet sadun kanssa lounaalle ."
+  651 print"{down} olet hotelli hesperian ravintolassa ."
+  652 print"{down} mit[ tilaat :"
+  654 print"1. kanaa currykastikkeessa"
+  656 print"2. lehtipihvi ranskiksilla"
+  658 gosub11000
+  660 ifa$="1"then665
+  661 ifa$="2"then680
+  662 goto658
+  665 print"{clr}{down} tilaat kanaa currykastikkeessa ."
+  667 print"{down} sy\t ruokasi ja tilaat j[lkiruoaksi"
+  668 print" j[[tel\n ja shampanjacoctailin ."
+  670 print"{down} maksat laskun ja l[hdet pois ravinto-"
+  673 print"lasta ."
+  677 goto700
+  680 print"{clr}{down} tilaat lehtipihvin ranskiksilla ."
+  682 print"{down}{down}{down} mielest[si annos oli liian pieni ja"
+  684 print" tilaat j[lkiruoaksi omenapiirakan ja"
+  686 print" kahvin ."
+  690 print"{down}{down} k[yt maksamassa laskun ja poistut"
+  695 print" ravintolasta ."
+  700 gosub10000
+  705 print"{clr}{down} menet kotiisi ja olet siell[ koko"
+  710 print" illan sadun kanssa ."
+  720 go to 1000
+  750 print"{clr}{down} et mene sadun mukaan vaan l[hdette"
+  760 print" sinun porschellasi ajelemaan"
+  770 gosub10000
+  775 print"{clr}{down} mihin ajatte :"
+  777 print"1. hotelli hesperiaan"
+  779 print"2. mc donald'siin"
+  780 gosub11000
+  781 ifa$="1"then785
+  782 ifa$="2"then790
+  784 go to 780
+  785 print"{clr}"
+  787 goto651
+  790 print"ajatte mc donald'siin ."
+  795 print"{clr}{down} tilaat isot ranskikset,keskikokoisen"
+  800 print" sriten,suklaa j[[tel\n ,ym. "
+  805 gosub10000
+  810 print"{clr}{down} sy\ty[si ateriasi menette kotiisi"
+  815 print"ja olette koko illan sadun kanssa"
+  820 print" kahdestaan ."
+ 1000 gosub10000
+ 1005 print"{clr}{down} her[[t aamulla kello 10.27 ."
+ 1010 print"{down} siistiydyt ,sy\t aamupalan ja l[hdet"
+ 1015 print" ajelemaan toimistoasi kohti ."
+ 1020 print"{down}matkalla ostat uudet sony walkannit ."
+ 1025 gosub10000
+ 1030 print"{clr}{down} kuuntelet uusista korvalappustere-"
+ 1035 print" oistasi musiikkia ."
+ 1040 print"{clr}{down} yht[kki[ puhelimesi soi ."
+ 1045 print"{down}vastaat : kaapo niemisen etsiv[toimisto"
+ 1050 print"{down} puhelimessa on kiihtynyt mies[[ni ."
+ 1055 print" haluan palkat... hetkinen !!!"
+ 1060 print"t[m[ kuuluu jo seuraavaan seikkailuusi !"
+ 1065 gosub 10000
+ 1070 print"{clr}{down} jatkoa alkuteksteihin :"
+ 1075 print"{down} seikkailun tekemisess[ oli apuna"
+ 1080 print"miikan lis[ksi my\s timppa ."
+ 1085 print"{down}{down} ei mul muuta ."
+ 1090 gosub 10000
+ 1095 goto20000
+ 9999 stop
+ 10000 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}     paina jotain n[pp[int[ ...":poke198,0
+ 10001 poke198,0:wait198,1,0:poke198,0:return
+ 10010 wait198,0,1:poke198,0:return
+ 11000 poke198,0
+ 11010 geta$:ifa$=""then11010
+ 11011 ifa$="1"thenreturn
+ 11012 ifa$="2"thenreturn
+ 11013 ifa$="3"thenreturn
+ 11014 ifa$="4"thenreturn
+ 11015 ifa$="5"thenreturn
+ 11020 goto11010
+ 20000 gosub 10000
+ 20010 input"{clr}{down}{down}{down} haluatko uuden pelin (k/e)";qw$
+ 20020 ifqw$="e"thensys64738
+ 20030 ifqw$="k"then20050
+ 20040 print"{up}{up}{up}":goto20010
+ 20050 print"{clr}load"chr$(34)"3.kaapo"chr$(34)",8"
+ 20055 print"{down}{down}{down}{down}run":poke631,19:poke632,13:poke633,13:poke198,3:new
+

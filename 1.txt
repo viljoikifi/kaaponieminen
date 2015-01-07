@@ -1,0 +1,1008 @@
+
+
+;/home/viljo/c64/3.kaapo.prg ==0801==
+    1 rem kaapo niemisen seikkailut
+    5 print"{clr}{down} {CBM-M}N OP OP OP OP  {CBM-M}M {CBM-G}]{CBM-M}{CBM-Y}{CBM-M}MN{CBM-G}] O{CBM-Y}{CBM-M}{CBM-Y}{CBM-M}M {CBM-G}"
+    7 print" {CBM-M}M OP OP O{CBM-Y} L{SHIFT-@}  {CBM-M} M{CBM-G}]{CBM-M}{CBM-Y}{CBM-M}  {CBM-G}] {CBM-Y}P{CBM-M}{CBM-Y}{CBM-M} M{CBM-G}"
+    9 printtab(23)"{CBM-Y}      {CBM-Y}{CBM-Y} {CBM-Y}"
+   11 print"       O{CBM-Y} {CBM-M}{CBM-Y} ]{CBM-M}N{CBM-M}N OP ]{CBM-M}  {CBM-G}{CBM-M} P{CBM-Y}"
+   13 print"       {CBM-Y}P {CBM-M}{CBM-Y}{$a0}]{CBM-M}M{CBM-M}M OP{$a0}]{CBM-M}{CBM-P} L{SHIFT-@} {CBM-M}"
+   15 print"       {CBM-Y}{CBM-Y}  {CBM-Y}"
+   16 print"{down} kaapo nieminen (c) by viljo viitanen"
+   17 print" seikkailun tekemisess[ apuna oli :"
+   18 print" miika"
+   20 print"{down}":print"et varmaan tied[ , kuka kaapo nieminen"
+   21 print"on. lienee syyt[ v[h[n selvent[[ asiaa."
+   22 print"kaapo nieminen on agenttikoulutuksen"
+   23 print"saanut yksityisetsiv[.h[n on 180 cm    "
+   24 print"pitk[ ja 80 kg painava poikamies."
+   25 print"kaapon tytt\yst[v[ , satu , toimii sih- teerin[ kaapon toimistossa ."
+   30 gosub 10000
+   35 print"{clr}{down}"
+   36 print" kaapo asuu milloin miss[kin ,"
+   37 print"t[ll[ hetkell[ h[n asuu (ilmeisesti)"
+   38 print"helsingiss[ .h[n pit[[ spritest[ , "
+   39 print"shampanjasta ja ei pid[ coca-colasta ."
+   40 print"autona h[nell[ on kes[ll[ porsche 911"
+   41 print"turbo cabriolet vm.1987 ja talvella "
+   42 print"saab 9000 turbo 16  (kumpikaan ei ole"
+   43 print"aivan tavallista mallia ...) "
+   44 print" t[m[ riitt[nee selvittelyist[ ."
+   45 print: print" uusi seikkailu on taas edess[ ...":gosub10000
+   60 print"{clr}{down} olet toimistossasi . istut nojatuo-     lissasi kun puhelin soi ."
+   61 print"   rrring":fora=1to900:next:print"{up}          ":fora=1to800:next:print"{up}   rrring"
+   62 print" valitse:"
+   63 print" 1. vastaat puhelimeen heti"
+   64 print" 2. annat puhelimen soida"
+   65 gosub11000
+   66 ifa$="1"then80
+   67 ifa$="2"then70
+   68 goto65
+   70 print"{up}{up}{up}{up}          ":fora=1to1000:next:print"{up}  rrrriiiiing":fora=1to500:next
+   71 print"{down}{down}{down}{down} et jaksa kuunnella rimputusta ja "
+   80 print" vastaat puhelimeen."
+   81 print"{down}   "chr$(34)"... apua ... mieheni on murhattu "chr$(34)
+   82 print"{down}valitse:"
+   83 print"1. kysyt naisen nime[ ja osoitetta"
+   84 print"2. annat naisen jatkaa puhumista"
+   85 gosub11000
+   86 ifa$="1"then100
+   87 ifa$="2"then89
+   88 goto85
+   89 print"{clr}"
+   90 printchr$(34)" se tapahtui t[n[ aamuna... menin kella-  riin hakemaan hillo-"
+   91 print"purkkia ja l\ysin mieheni makaamassa     lattialla tikari sel[ss..."
+   92 print" nyyyyh ... snif ... hirve[[ ... "
+   93 print" by - hyyyy !!! ....              ...":gosub10000
+   94 print"{clr}{down}.. n[in murhaajan . h[nell[ oli pipo,"
+   95 print"joka oli punainen ja sill[ oli musta"
+   96 print" pitk[ takki ....  hei !! mit[ t[m[ on ?"
+   97 print" p[[st- ...  aaaa p u a ... ... klik"
+   98 print"{down}{down} puhelu katkesi.nainen ilmeisesti "
+   99 goto13000
+  100 print"{clr}{down} kysyt naisen nime[ : ja nimesi oli ?"
+  102 printspc(2)chr$(34)" nimeni on eveliina kanttura ."
+  104 print" asun oulussa . olemme hyvin rikkaita ."
+  106 print" min[ n[in sen murhaajan ! sill[ oli"
+  108 print" punainen pipo ja musta takki ja iso "
+  109 print" musta parta . mutta ...."
+  110 print"   n y y y h h ... "
+  112 gosub 10000
+  114 print"{clr}{down} snif .. tule nopeasti t[nne ouluun ,"
+  116 print" kirjoitan lis[[ tietoja ..."
+  119 print"       (pient[ rapinaa)"
+  120 print" (kirkaisu) apua ! mit[ ihm- apua"
+  122 print" ... (kolinaa) ... klik ... tuuuuuu..."
+  124 gosub 10000
+  125 print"{clr}{down} mit[ teet :"
+  127 print"1. l[hdet t[lt[ istumalta ouluun "
+  128 print"2. ajattelet v[h[n , ennenkuin l[hdet"
+  129 print"3. menet sihteerin puheille"
+  130 gosub 11000
+  132 ifa$="1"then140
+  133 ifa$="2"then160
+  134 ifa$="3"then170
+  135 goto130
+  140 print"{clr}{down}juokset salak[yt[v[[ pitkin autotalliin."
+  142 print"kuulet jotain huutoa mutta et v[lit["
+  144 print"l[hdet saabillasi ajamaan ouluun ."
+  145 gosub10000
+  146 print"{clr}{down} joudut jyv[skyl[n l[hettyvill[ poliisin  ratsiaan . "
+  148 print" kauhuksesi huomaat,ett[ lompakkosi j[i"
+  150 print"toimistoosi helsinkiin."
+  152 print"sinulla ei ole mukana vaatteiden "
+  154 print" lis[ksi muuta kun viisi markkaa rahaa."
+  155 print" yrit[t l\yt[[ autosi katsastustodis-"
+  156 print" tuksen , mutta et l\yd[ sit[ ."
+  157 print"{down}ik[v[ kyll[,seikkailusi loppui t[h[n."
+  158 goto20000
+  160 print"{clr}{down} ajattelet v[h[n,ja huomaat lompakkosi."
+  162 print"lompakossa on saabisi katsastustodistus"
+  165 print" otat mukaan vaatteita ja sprite-pullon"
+  166 print" menet sihteerin puheille."
+  168 aj=1:gosub 10000
+  170 print"{clr}{down} menet sihteerisi luokse . kerrot "
+  171 print" h[nelle , mit[ on tapahtunut ja minne"
+  172 print" aiot menn[ . h[n antaa sinulle 7500mk"
+  173 print"katsot kalenteriin.on huhtikuun 2. -87"
+  174 print" menet autotalliin ."
+  175 gosub 10000
+  178 print"{clr}{down} menetk\"
+  179 print"1. porsche 911 turbolla"
+  180 print"2. saab 9000 turbo 16:lla
+  181 gosub 11000
+  182 ifa$="1"then 190
+  183 ifa$="2"then 200
+  184 goto181
+  190 print"{down} menet porsceen . k[ynnist[t set."
+  191 print"se pysyy v[h[n aikaa k[ynniss[, mutta"
+  192 print"sammuu heti.bensa on loppu.menet saabiin"
+  193 gosub10000
+  194 print"{clr}{down}":goto201
+  200 print"{clr}{down} menet saabiin"
+  201 print"k[ynnist[t auton.bensatankki on melkein"
+  202 print"t[ynn[.l[hdet ajamaan oulua kohti."
+  203 gosub10000
+  204 print"{clr}{down} joudut jyv[skyl[n tienoilla poliisin"
+  205 print" ratsiaan":ifaj=1then210
+  206 print"{down} poliisi kysyy ajokorttia ja rekis-"
+  207 print" teriotetta . et l\yd[ kumpaakaan."
+  208 print"{down}seikkailusi on valitettavasti p[[ttynyt"
+  209 goto20000
+  210 print" n[yt[t ajokorttisi ja rekisteriotteen."
+  211 print"poliisi sanoo ,ett[ voit jatkaa matkaa."
+  212 print"{down} ajat (melkein) nopeusrajoitusten"
+  213 print" mukaisesti ouluun saakka."
+  214 gosub 10000
+  215 print"{clr}{down} saavut ouluun . k[yt huoltoasemamlla."
+  216 print"kysyt miss[ kantturat asuvat."
+  217 print"saat tiedon ja t[yt[t auton bensatankin."
+  218 print" se maksoi 190 mk":ra=7315:print"sinulle j[i rahaa:"ra
+  219 print"{down} ajat kantturoiden talolle."
+  220 gosub10000
+  221 print"{clr}{down} olet talon pihalla . minne menet :"
+  222 print"1. autotalliin"
+  223 print"2. taloon"
+  224 gosub11000
+  225 ifa$="1"then240
+  226 ifa$="2"then230
+  227 goto224
+  230 print"{clr}{down} menet sis[lle taloon . kun avaat "
+  231 print"eteisen oven , oven p[[ll[ oleva ansa"
+  232 print"tippuu p[[llesi . kuolit."
+  233 print"{down}lienee itsest[[n selv[[,ett[ seikkailusi"
+  234 print" on lopussa."
+  235 goto20000
+  240 print"{clr}{down} menet autotalliin . siell[ on uusi"
+  241 print" mersu 500 sel . ihastelet autoa ja "
+  242 print" samalla huomaat auton pohjassa jotain"
+  243 print" kiilt[v[[ . mit[ teet :"
+  244 print"1. otat kiilt[v[n esineen"
+  245 print"2. et ota kiilt[v[[ esinett["
+  246 gosub11000
+  247 ifa$="1"then260
+  248 ifa$="2"then250
+  249 goto246
+  250 print"{clr}{down} j[t[t esineen paikoilleen."
+  251 print" tutkit autotallia ja huomaat avaimen-"
+  252 print" rei[n . siihen sopisi abloy-avain."
+  253 print" et l\yd[ muuta . menet ulos ja taloon"
+  254 print" sis[lle ."
+  255 gosub10000:goto 230
+  260 print"{clr}{down} otat esineen.se on uusi abloy-avain."
+  261 print"tutkit autotallia ja huomaat avaimen-"
+  262 print"rei[n abloy-avaimelle.mit[ teet :"
+  263 print"1. et kokeile , sopiiko avain
+  264 print"2. kokeilet , sopiiko avain "
+  265 gosub11000
+  266 ifa$="1"then270
+  267 ifa$="2"then280
+  268 goto265
+  270 print"{clr}{down} et koittanut , sopiiko avain reik[[n."
+  271 print"et l\yd[ autotallista muuta kiinostavaa."
+  272 print" menet ulos ja sis[lle taloon ."
+  273 gosub 10000
+  274 goto230
+  280 print" koitat , onko avain oikea ."
+  281 print"{down} se sopii !"
+  282 print"{down} k[[nn[t avainta ja ..."
+  283 gosub10000
+  284 print"{clr}{down} vierest[si aukeaa salaluukku ! "
+  285 print"mit[ teet :"
+  286 print"1. menet luukusta sis[[n"
+  287 print"2. et mene luukusta"
+  288 gosub 11000
+  289 ifa$="2"then295
+  290 ifa$="1"then310
+  291 goto288
+  295 print"{clr}{down} et mene luukkuun ."
+  296 print"katselet ymp[rillesi , mutta et l\yd["
+  297 print" mit[[n mielenkiintoista ."
+  298 print" siisp[ l[hdet ulos ja menet p[[ovsta "
+  299 print"sis[[n ."
+  300 gosub 10000
+  301 goto230
+  310 print"{clr}{down} menet luukusta sis[[n !"
+  311 print" n[et k[ytav[n , jonka p[[ss[ on toinen"
+  312 print" luukku . avaat luukun ja n[et ..."
+  313 gosub 10000
+  314 print"{clr}{down} olohuoneen !!"
+  315 print"kaikki on kuin tappelun j[ljilt[ ."
+  316 print"mit[ teet :"
+  317 print"1. tutkit olohuoneen"
+  318 print"2. l[hdet pois olohuoneesta"
+  319 gosub 11000
+  320 ifa$="1"then340
+  321 ifa$="2"then324
+  322 goto319
+  324 print"{clr}{down} l[hdet pois olohuoneesta."
+  325 print" huomaat eteisen oven yl[puolella "
+  326 print" olevan sangon . kun olet ottamassa"
+  327 print" sankoa pois oven p[[lt[,sielt[ tippuu"
+  328 print" jotain ainetta p[[llesi ."
+  329 print" ehdit tuntea hirve[[ kipua k[dell[si ,"
+  330 print" johon tippui ainetta . sanko putoaa "
+  331 print" ja loputkin aineet tippuvat p[[llesi ."
+  332 print"kuolet.seikkailusi p[[ttyi hetki sitten."
+  333 goto20000
+  340 print"{clr}{down} tutkit olohuonetta ."
+  341 print"l\yd[t p\yd[lta puhelimen vieret[ pape-"
+  342 print"rilappusen jossa on huonolla k[sialalla"
+  343 print"tehty[ teksti[ . siin[ lukee :"
+  344 printchr$(34)"mustat viikset,iso nen[,jossa arpi,"
+  345 print"mustat saappaat ja pait UFHW{SHIFT-*}{SHIFT-*}GH{CBM-A}{CBM-S}{CBM-X}. ."chr$(34)
+  346 print"l\yd[t p\yd[lt[ my\s eritt[in kalliin"
+  347 print"ranskalaisen savukkeen ja osoitteen :"
+  348 print" 12 rue d'avignon deauville, france"
+  349 gosub 10000
+  350 print"{clr}{down}l\yd[t my\s takan sein[[n hiilell["
+  351 print"raapustetetun : norja okstindane "
+  352 gosub10000
+  353 print"{clr}{down}n[iden ohjeiden kera p[[t[t l[hte["
+  354 print" norjaan."
+  355 print" mutta : sinulla ei ole passia mukana."
+  356 print" mit[ teet :"
+  357 print"1. menet lentokoneella helsinkiin"
+  358 print"2. menet autolla helsinkiin"
+  359 print"   (hakemaan passia)"
+  360 gosub11000
+  361 ifa$="1"then375
+  362 ifa$="2"then365
+  363 goto360
+  365 print"{clr}{down} l[hdet ajamaan kohti helsinki[."
+  366 gosub10000
+  367 gosub10000:print"{clr}"
+  368 gosub10000
+  369 print" on jo aamuy\ ja nukahdat rattiin":gosub10000
+  370 print"{clr}{down} ajat jyrk[nteelt[ alas ja kuolet ."
+  371 print"{down} seikkailusi loppui (taasko ?)"
+  372 goto20000
+  375 print"{clr}{down} ajat lentokent[lle ja j[t[t auton"
+  376 print"lentokent[lle.odottelet v[h[n aikaa ja"
+  377 print" nouset koneeseen."
+  378 print" koneen noustua nukahdat ."
+  379 gosub10000
+  380 print"{clr}{down} her[[t kuulutukseen :kiinnitt[k[[ tur-"
+  381 print"vavy\t.l[hestymme seutulan lentokentt[["
+  382 gosub10000
+  383 print"{clr}{down} matka maksoi 700 mk.":ra=ra-700:print"sinulle j[i rahaa "ra"mk"
+  384 gosub 10000
+  385 print"{clr}{down} otat taksin kotiin."
+  386 print"{down} matka maksoi 50 mk juomarahoineen":ra=ra-50:print" rahaa j[i "ra"mk"
+  387 gosub 10000
+  388 print"{clr}olet kotonasi ja nukut kunnon y\unet."
+  389 fora=1to10:gosub10000:print"{clr}{down}{down}{down}{down}{down}{down}{down} z zzz..":next
+  390 print"{clr}{down} her[[t p[iv[ll[ kun kello on 14.01 ."
+  391 print"k[yt pesulla ja muilla tarpeillasi."
+  392 print"laitat nahkapuvun p[[llesi ja l[hdet"
+  393 print" honda 1000 vf 2:llasi ajelemaan toimis-  toasi kohti."
+  394 gosub10000
+  395 print"{clr}{down}toimistossa satu on jo odotellut sinua."
+  396 print"h[n sanoo : aapo laukkanen soitti ja    j[tti soittopyynn\n."
+  397 print"my\s v[iski luppanen soitteli."
+  398 print"{down} istahdat nojatuoliisi."
+  399 gosub10000
+  400 print"{clr}{down} kummalle soitat :"
+  401 print"1. aapo laukkaselle"
+  402 print"2. v[iski luppaselle"
+  403 gosub11000
+  404 ifa$="1"then410
+  405 ifa$="2"then420
+  406 goto403
+  410 print"{clr}{down} soitat aapolle .{down}{down}{down}"
+  412 fors=1to3
+  413 print"{up} tuuuuuuuut":fora=1to2000:next:print"{up}            ":fora=1to2000:next
+  414 print"{up} tuuuuuuuut":fora=1to2000:next:print"{up}            ":fora=1to2000:next
+  415 nexts
+  416 print"{down} laukkasilla ei vastata , siisp["
+  417 print" soitat luppasille ."
+  418 gosub10000
+  420 print"{clr}{down} soitat v[iskille .{down}{down}{down}"
+  421 print"{up} tuuuuuuuut":fora=1to2000:next:print"{up}            ":fora=1to2000:next
+  422 print"{up} tuuuuuuuut":fora=1to500:next:print"{up}            ":
+  423 print"{up} luppasella v[iski puhelimessa "
+  424 print"{down} t[[ll[ on kaapo niemisen manuaalinen"
+  425 print" puhelinsoittaja . olit soitellut ?":gosub10000
+  426 print"{clr}{down} olet kuulemma halunnut saada tietoja    artturi kantturasta ."
+  427 print"{down} joo, oletko saanut jotain selville ?":gosub10000
+  428 print"{clr}{down} olen . h[n on keksinyt salaisen hermo-"
+  429 print" kaasun,jonka kaava ry\stettiin samal-"
+  430 print" la kun eveliina,artturin vaimo, kidna-  pattiin."
+  431 print"{down} tied[tk\,miss[ artturi oli t\iss[ ?":gosub10000
+  432 print"{clr}{down} jossain ranskassa ilmeisesti ."
+  433 print" ai niin,se kidnappaajaryhm[ oleskelee"
+  434 print" t[ll[ hetkell[ norjassa,jossain"
+  435 print" mo i rana-nimisen kaupungin etel[puo-   lella ."
+  436 print"{down} kiitti tiedoista . terve !"
+  437 print"{down} hei sit.soitellaan !{down} klik"
+  438 gosub10000
+  439 print"{clr}{down} sanot sadulle , ett[ olet l[hd\ss["
+  440 print"norjaan ja viivyt siell[ v[h[n aikaa ."
+  441 print"{down} l[hdet hondallasi kohti seutulan lento- kentt[[ ."
+  442 gosub 10000 :print"{down}{down}{down}{down}{down}{down}  prrr\\\\\n n\\nnnn pr\\\ ....{down}{down}{down}{down}{down}":gosub10000
+  443 print"{clr} olet seutulan terminaalissa."
+  444 print"koneen l[ht\\n on aikaa 1/2 tuntia."
+  445 print"mit[ teet aikasi kuluksi ?"
+  446 print"1. menet kahvioon"
+  447 print"2. ostat kirjan ja luet sit["
+  448 print"3. menet toilettiin"
+  449 gosub11000
+  450 ifa$="1"then460
+  451 ifa$="2"then470
+  452 ifa$="3"then505
+  453 goto449
+  460 print"{clr}{down} ostat kahvin ja s[mpyl[n."
+  461 print" se maksoi 10 mk .":ra=ra-10:print"sinulla on rahaa viel[ "ra"mk"
+  462 print" mutta s[mpyl[ssa on kalaa ja sin[ et "
+  463 print" pid[ kalasta,joten aikaa kuluu "
+  464 print" noin 25 minuttia ja p[[set sis[[n "
+  465 print" lentokoneeseen .":gosub10000:goto520
+  470 print" menet shop:iin ja ostat kirjan"
+  471 print" se maksaa 55 mk":ra=ra-55:print"sinulle j[i rahaa "ra"mk
+  472 print" kirjan nimi on janen seikkailut 2 ."
+  473 print" avaat kirjan ja alat lukea"
+  474 gosub 10000:ki=1
+  475 print"{clr}{down} ... h[n meni sis[[n taloon ja .. blah"
+  476 print"{down} blah  blah  ... huoneessa oli s[nky ."
+  477 print"jane riisuitui ja k[vi v[syneen[ maate."
+  478 print" bl bl bl ...":print"{down} ... sitten huoneen ovi avautui ."
+  479 print"   rick mallow tuli sis[[n ."
+  480 print"h[n n[ki janen s[ngyss[ ja sulki oven ."
+  481 print"ovi meni lukkoon.jane katsoi miest[[n."
+  482 print"rick rupesi aukomaan paitansa nappeja ."
+  483 print"pian h[n oli riisunut kaikki vaatteensa"
+  484 print"ja hypp[si s[nkyyn janen viereen."
+  485 print"bl bl ....  blah "
+  486 print" blah  bl    bl bl blblbl  bl    bl blah"
+  487 print"... rick oli jo jane p[[ll[ kun puhelin"
+  488 print"soi .- min[ vastaan , sanoi rick."
+  489 print"-se on sinulle . jane otti luurin ja"
+  490 print"kuunteli hetken . sitten h[n laittoi"
+  491 print"luurin takaisin paikalleen."
+  492 gosub 10000
+  493 print"{clr}{down} pian he olivat taas t[ydess[ touhussa."
+  494 print"- jane,minusta tuntuu , ett[ meid[n pi-"
+  495 print" mielest[ni.rick asetti kaluaan sis[[n"
+  496 print" juuri kuin "chr$(34)"ding viimeinen kuulutus"
+  497 print" lennolle ay714 osloon portti a5 ding"chr$(34)
+  498 print"ajattelet : juuri kun alkoi tapahtua..."
+  499 print"niin on ment[v[ lentokoneeseen !"
+  500 print"{down} unohdat kirjan penkille kun juokset"
+  501 print" portille a5.":gosub10000
+  502 goto520
+  505 print"{clr}{down} menet vessaan tarpeillesi.{down}"
+  506 print" lirin - lorin  p\ntt\ tyhjenee."
+  507 print" juuri kun ole avaamassa ovea,huomaat"
+  508 print" p\nt\n vieress[ olleen uuden sanoma-"
+  509 print" lehden . alat lukea sit[ :
+  510 gosub 10000
+  511 print"{clr}{down} reagan tiukkana iran-gatesta :"
+  512 print"  "chr$(34)"en tiennyt sit["chr$(34)
+  513 print"{down} terroristit valloillaan ranskassa "
+  514 print"{down} kuuluisa tiedemies murhattu"
+  515 print" my\s vaimo kidnapattiin"
+  516 print"{down} sam fox tulee suomeen juhannuksena "
+  517 print"{down}{down} pist[t lehden taskuusi ja menet "
+  518 print" lentokoneelle .":wc=1
+  519 gosub 10000
+  520 fora=1to7:print"{clr}{down}{down}{down} olet lentokoneeseen viev[ss[ jonossa":gosub10000:next
+  521 ifwc=1then523
+  522 fora=1to9:print"{clr}{down}{down}{down} olet lentokoneeseen viev[ss[ jonossa":gosub10000:next
+  523 print"{clr}{down} p[[sit sis[lle koneeseen."
+  524 print" kone nousee ilmaan ...":fora=1to4000:next:print"{up}                        "
+  527 ifwc=1then535
+  528 print"yht[kki[ huomaat,ett[ sinulla on h[t[."
+  529 print"menet vessaan viev[[n jonoon.":gosub10000
+  530 fora=1to11:print"{clr}{down}{down}{down}olet vessaan viev[ssa jonossa":gosub10000:next
+  531 print"{clr} p[[sit vessaan !"
+  532 print"{down} ahhhhhhhh .... mik[ helpotus ..."
+  533 fora=1to3000:next:print"{up}                                  "
+  534 fora=1to2000:next:print"l[hdet pois vessasta."
+  535 gosub 10000
+  539 print"{clr}{down} katselet,kun pilvet j[[v[t taakse ..."
+  540 fora=1to2000:next:print"{down}{down} tilaat drinkin (shampanjacoctailin)"
+  541 fora=1to1000:next:gosub10000
+  542 if wc=1 then550
+  543 print"{clr} odottelet ...."
+  544 fora=1to5000:print"otat pienet torkut ...":gosub10000
+  545 fora=1to11:print"{clr}{down}{down}{down}{down}{down}{down}{down}{down} z zz zz zz":gosub10000:next:fora=1to2000:next
+  547 print"{clr}{down} her[[t [[neen : saavumme osloon 10 "
+  548 print" minuutin p[[st[ ."
+  549 goto560
+  550 gosub10000:print"{clr}"
+  551 print"huomaat lehden,joka on taskussasi."
+  552 print" rupeat ratkomaan sanaristikkoa."
+  553 print"{down} et huomaakkaan , miten aika kuluu ..."
+  555 fora=1to1000:next
+  556 print"havahdut ristikon lomasta kuulutukseen:"
+  557 print" saavumme osloon 10 minuutin p[[st[ ."
+  560 gosub10000
+  561 print"{clr}{down} kone laskeutuu ...":fora=1to5000:print"{up}                   "
+  562 print"{down} l[hdet pois lentokoneesta."
+  563 fora=1to2000:print"{up} olet oslon lentokent[ll[ mit[ teet :"
+  564 print"1. menet kaupungille"
+  565 print"2. palaat kotiin"
+  566 gosub11000
+  567 ifa$="2"then570
+  568 ifa$="1"then575
+  569 goto566
+  570 print"{clr}{down}{down}{rvon} p[[t[t l[hte[ kotiin ! "
+  571 print"{down} noin tyhmi[ seikkaijijoita ei tarvita."
+  572 print" siksi pelisi loppui t[h[n ."
+  573 goto20000
+  575 print"{clr}{down} olet kaupungilla":print"mihin menet :"
+  576 print"1. rent a car":print"2. tom's sports shop":print"3. sam's bar"
+  577 gosub 11000
+  578 ifa$="1"then615
+  579 ifa$="2"then595
+  580 ifa$="3"then585
+  581 goto577
+  585 print"{clr}{down} menet baariin sis[lle ."
+  586 print" jostain syyst[ siell[ on tappelu"
+  587 print" meneill[[n ja oven takana ollut mies"
+  588 print" ly\ sinua tuolilla p[[h[n ."
+  589 print" valitettavasti mies l\i tuolillaan"
+  590 print" liian lujaa , ja sin[ kuolit ."
+  591 goto20000
+  595 print"{clr}{down} menet urheilukauppaan ja huomaat tar-"
+  596 print" jouksen . pieni .22 kaliiberinen "
+  597 print" pistooli ainoastaan 1500 fim"
+  598 print" ostatko pistoolin (k/e)"
+  599 geta$:ifa$="e"then605
+  600 ifa$<>"k"then599
+  601 print"{clr}{down} ostat pistoolin.saat kaupanp[[lisiksi"
+  602 print"kotelon ja 6 10 panoksen lipasta .":ra=ra-1500:gu=1
+  603 print"rahaa sinulle j[i "ra"mk
+  604 gosub 10000
+  605 print"{clr}{down} l[hdet kaupasta."
+  606 print"mihin menet :":print"1. rent a car":print"2. sam's bar"
+  607 gosub 11000
+  608 ifa$="1"then 615
+  609 ifa$="2"then 585
+  610 goto607
+  615 print"{clr}{down} menet autovuokraamoon."
+  616 print"mink[ auton otat :{down}"
+  617 print"nimi"tab(22)"hinta(fim)"
+  618 print"1. chevrolet corvette"tab(22)"700"
+  619 print"2. kuplavolsu"tab(22)"100"
+  620 print"3. audi 80 quattro"tab(22)"450"
+  621 print"4. lada 2107"tab(22)"150"
+  622 gosub11000
+  623 ifa$="1"then630
+  624 ifa$="2"then640
+  625 ifa$="3"then665
+  626 ifa$="4"then650
+  627 goto622
+  630 print"{clr}{down}ajelet chevyll[si vuoristoteit[ pitkin."
+  631 print" eteesi tulee jyrkk[ m[ki ja painat"
+  632 print"kaasua turhan voimallisesti."
+  633 print" autosi joutuu sivuliirtoon ja sy\ksyy"
+  634 print" sy\ksyy jyrk[nteelt[ alas ."
+  635 print" kuolet . seikkailusi loppui t[h[n ."
+  636 goto20000
+  640 print"{clr}{down} ajalet vokkelollasi aika hiljaa ."
+  641 print"eteesi tulee tosi jyrkk[ m[ki ."
+  642 print" painat kaasun pohjaan ja juuri m[en"
+  643 print" p[[ll[ autosi moottori leikkaa kiinni ."
+  644 print" j[it vuoristoon kuolemaan , koska"
+  645 print" kukaan ei aja ohi yli kolmeen viikkoon"
+  646 print" ja vuoristossa on kylm[ ."
+  647 print" seikkailusi loppui siihen ."
+  648 goto20000
+  650 print"{clr}{down}ajelet ladallasi suoraa vuoristotiet[."
+  651 print"yht[kki[ moottori sammuu ."
+  652 print"avaat konepellin ja huomaat vian :"
+  653 print" bensaletku on katkennut ."
+  654 print" onneksi olet katsonut telkusta"
+  655 print"macgyveri[,joten korjaat letkun kuula-"
+  656 print"k[rkikyn[ll[ ."
+  657 gosub 10000
+  658 print"{clr}{down} eteesi tulee jyrkk[ m[ki.painat"
+  659 print"kaasun pohjaan ja p[[set vaivalloisesti"
+  660 print" m[en yl\s . kun tulet m[ke[ alas "
+  661 print" jarrusi pett[v[t ja sy\ksyt pystysuo-   raa kalliota p[in ."
+  662 print"autosi r[j[ht[[ ja sin[ r[j[hd[t auton   mukana."
+  663 print" seikkailusi loppui t[h[n."
+  664 goto20000
+  665 print"{clr}{down} ajelet rennosti neliveto audillasi"
+  666 print" musaa kuunnellen mo i ranaan sakka."
+  667 gosub 10000
+  668 print"{clr}{down} olet mo i ranassa.mihin menet :"
+  669 print"1. hotel":print"2. slalom implement"
+  670 gosub11000
+  671 ifa$="1"then680
+  672 ifa$="2"then675
+  673 goto670
+  675 print"{clr}{down} menet lasketteluv[linekauppaan."
+  676 print" vuokraat sielt[ lasketteluv[lineet"
+  677 print"viikoksi hintaan 400 mk .":ra=ra-400:sl=1:print"rahaa j[i "ra"mk"
+  678 gosub10000
+  680 print"{clr}{down} menet hotelliin ja otat yhden hengen"
+  681 print" huoneen.se maksoi 100 mk.":ra=ra-100:print"rahaa j[i "ra"mk"
+  682 gosub10000
+  683 print"{clr}{down} menet huoneeseesi ."
+  684 print"kuunteletko"
+  685 print"1.radiota"
+  686 print"2.kasettia"
+  687 gosub11000
+  688 ifa$="1"then700
+  689 ifa$="2"then695
+  690 goto687
+  695 print"{clr}{down} laitat kasetin sis[[n ja alat kuunnella"
+  696 print"sielt[ tulee iron maidenin running free":gosub 10000
+  697 fora=1to50:print"{down} m\k[[ meluaaa !!!!!!";:next
+  698 print"{down}{down}{down}{down}{down}{down} yht[kki[ tunnet,kuinka veitsi uppoaa    selk[[si ."
+  699 print"{down} kuolet.":goto20000
+  700 print"{clr}{down} avaat radion . sielt[ tulee juuri       mel & kimin respectable."
+  701 gosub10000
+  702 print"{clr}      tei             tei
+  703 print"   tei   tei      tete   tei
+  704 print"tei         tetete     ":gosub10000
+  705 print"{clr} klik naps n[pr[yst[":ifgu<>1then10500
+  706 print"{down}sammutat radion ,otat aseen k[teesi ja"
+  707 print"k[[nn[hd[t ymp[ri."
+  708 print" n[et , kun ovi aukeaa ja sis[[n tulee"
+  709 print"mies, jolla on k[det t[ynn["
+  710 print"heittoveitsi[. h[n on juuri heitt[m[ss["
+  711 print" veist[ kohti sinua , kun painat         liipasinta ."
+  712 gosub 10000
+  713 print"{clr} h[n saa heitetty[ veitsen samalla,kun"
+  714 print" h[n kaatuu kuolleena maahan."
+  715 print"veitsi osuu takanasi olevaan tuoliin ja"
+  716 print"n.30 cm p[[h[n syd[mest[si."
+  717 print"katsot tuolia .veitsi on mennyt melkein"
+  718 print"tuolin l[pi.":gosub10000
+  719 print"{clr}{down} heit[t ruumiin 5.kerroksen ikkunasta"
+  720 print" alas.soitat er[[lle tyypille,ett[ h[n"
+  721 print"siivoaisi j[ljet ."
+  722 print" k[yt nukkumaan rauhallisin mielin ."
+  723 gosub10000:print"{clr}{down}{down}{down}{down}{down}{down} z  z  z zz zz zzz ...":fora=1500to1step-1:next
+  724 gosub 10000:print"{clr}{down} her[[t aamulla kello 9.21 ."
+  725 print"{down}menet aamupalalle hotellin ravintolaan ."
+  726 gosub10000
+  727 print"{clr}{down} sy\ty[si katsot karttaa.huomaat siell["
+  728 print"nimen okstindane.muistat,ett[ se oli"
+  729 print"raapustettu takan sein[m[[n."
+  730 print"okstindare on j[[tikk\ kaupungin"
+  731 print"etel[puolella.l[hdet ajamaan sinne."
+  732 ifsl=1then740
+  733 print"vasta perill[ huomaat , ett[ tarvisisit"
+  734 print"lasketteluv[lineet.l[hdet ajamaan ta-    kaisin kaupunkiin."
+  735 gosub10000
+  736 print" kuolet. seikkailusi loppuu t[h[n.":goto20000
+  737 print"j[[t sen alle ja autosi sy\syy rotkoon."
+  740 print" olet m[en tasanteella ja laitat las-"
+  741 print"ketteluv[lineet yllesi."
+  742 gosub10000
+  743 print"{clr}{down} kuulet jyrin[[ ja katsot taaksesi."
+  744 print" lumivy\ry !!"
+  745 print"{down}{down}{down}{down} l[hdet suksilla m[keen."
+  746 gosub 10000
+  747 print"{clr}{down} noin 5 minuutin laskettelun j[lkeen     pys[hdyt."
+  748 print"{down}katselet yl\s ja harmittelet auton koh-  taloa ."
+  749 print"{down}alas katsoessasi n[et kun joku seisos-"
+  750 print"kelee rinteell[ . yht[kki[ h[n alkaa"
+  751 print" ampua sinua kiv[[rill[[n."
+  752 gosub10000
+  753 print"{clr}{down} l[hdet laskemaan miest[ kohti. h[n"
+  754 print"l[htee ilmeisesti sinua karkuun."
+  755 print"{down}{down} v[h[n ajan j[lkeen h[n hypp[[ moot-"
+  756 print"torikelkan selk[[n ja karkaa sinulta ."
+  757 gosub10000
+  758 print"{clr}{down} n[et moottorikelkan.mit[ teet:"
+  759 print"1. l[hdet ajamaan moottorikelkalla"
+  760 print"2. jatkat menoa suksilla "
+  761 gosub11000
+  762 ifa$="1"then765
+  763 ifa$="2"then770
+  764 goto761
+  765 print"{clr}{down} kun k[ynnist[t moottorikelkan , se"
+  766 print"r[j[ht[[ ja kuolet.sorry !
+  767 goto20000
+  770 print"{clr}{down} jatkat suksilla ."
+  771 print"{down}{down} noin 5 minuutin laskettelun j[lkeen"
+  772 print" n[et er[k[mp[n , jonka piipusta nousee"
+  773 print" savua. mit[ teet :"
+  774 print"1. jatkat matkaa."
+  775 print"2. menet k[mpp[[n sis[lle"
+  776 print"3. l[hdet tiet[ pitkin kaupunkiin ."
+  777 gosub 11000
+  778 ifa$="1"then785
+  779 ifa$="2"then805
+  780 ifa$="3"then795
+  781 goto777
+  785 print"{clr}{down} jatkat matkaa."
+  786 print"{down}{down} laskettelet rauhallisesti , mutta"
+  787 print" yht[kki[ rinne muuttuu j[iseksi."
+  788 print" et voi pys[hty[ , koska vauhtisi on "
+  789 print" liian suuri ."
+  790 print" eteesi tulee iso halkeama ."
+  791 print" yrit[t hyp[t[ sen yli , mutta et "
+  792 print" onnistu . putoat rotkoon ja kuolet .":goto20000
+  795 print"{clr}{down} otat sukset pois jaloistasi ja "
+  796 print" rupeat talsimaan tiet[ pitkin .":gosub10000
+  797 fora=1to6:print"{clr}"tab(a)"{down}{down}{down} k[velet tiet[ pitkin .":gosub10000:next
+  798 print"{clr}{down}yht'[kki[ mutkan takaa tulee auto "
+  799 print" kovaa vauhtia sinua kohti .":print" et ehdi v[ist[[."
+  800 print"{down} siisp[ kuolet .":goto20000
+  805 print"{clr}{down} menet m\kkiin sis[lle."
+  806 print"{down} se n[ytt[[ autiolta."
+  807 print"{down} huomaat lattialla olevan muistikirjan"
+  808 print" ja avaat sen . siell[ lukee :"
+  809 print"{down}"chr$(34)"hermokaasun ostaja on jean de'tappakov"chr$(34)
+  810 gosub 10000
+  811 print"{clr}{down} yht'[kki[ auto ilmestyy m\kin pihalle."
+  812 print"{down} autossa on kolme miest[."
+  813 print"yhdell[ on punainen pipo, pitk[ musta"
+  814 print" takki, iso parta ja mustat viikset."
+  815 print" toinen on lihava rankalaisen n[k\inen"
+  816 print" miekkonen ja kolmas j[i auton taka-"
+  817 print"penkille .sitten muistat ,ett[ artturi"
+  818 print"kantturan murhaajalla oli puninen pipo,"
+  819 print" musta pitk[ takki ym."
+  820 print"{down} mit[ teet :"
+  821 print"1. piiloudut"
+  822 print"2. ammut paksukaisen ja pipop[[n"
+  823 print"3. antaudut heille."
+  824 gosub11000
+  825 ifa$="1"then850
+  826 ifa$="2"then840
+  827 ifa$="3"then830
+  828 goto824
+  830 print"{clr}{down} antaudut niille !"
+  831 print"{down} tulet ulos m\kist[ k[det ylh[[ll[."
+  832 print"ranskalainen sanoo jotain pipop[[lle."
+  833 print"pipop[[ sanoo : olet n[hnyt jo nyt "
+  834 print"liikaa . siisp["
+  835 print"{down} h[n ottaa veitsen taskustaan ja heit-"
+  836 print"t[[ sen sinuun . kuolet .":goto20000
+  840 print"{clr}{down} ammut ensin pipop[[n ( b a n g )"
+  841 print"{down} ja sitten ranskalainsen ( b a n g )"
+  842 print"{down} mutta autossa ollut mies avaa auton"
+  843 print" ikkunan ja ampuu konepistoolillaan"
+  844 print"{down}     (ratatatatatatatatatatataa){down}"
+  845 print" sinuun noin kymmenkunta reik[[ ."
+  846 print" kuolit siihen paikkaan."
+  847 print"{down}   seikkailusi valitettavasti loppui             siihen ."
+  848 goto20000
+  850 print"{clr}{down} piilodut s[ngyn (tapaisen) alle."
+  851 print"{down} n[et,kuinka miehet tulevat sis[[n ."
+  852 print"he ottavat muistikirjan ja keskustelevat"
+  853 print"{up} jostain. kuulet selv[sti er[[n paikan"
+  854 print" nimen : 12 rue d'avignon deauville ."
+  855 print"{down}noin 10 minuutin p[[st[ miehet l[htev[t"
+  856 print"pois m\kist[.tulet pois piilopaikastasi"
+  858 print" suksiesi luona.hiivit ulos m\kist["
+  859 print" auton luokse . miehet eiv[t huomanneet"
+  860 print" sinua . hypp[[t auton rattiin ja k[yn-"
+  861 print" nist[t auton ."
+  862 gosub 10000
+  863 print"{clr}{down} k[[nn[t auton ja samalla saat luoti-"
+  864 print" suihkun auton kylkeen ."
+  865 print" luodit eiv[t osu sinuun ja kaasuttelet"
+  866 print"pois paikalta. j[t[t miehet kiroilemaan"
+  867 print" 38 kilometrin p[[h[n kaupungista ."
+  868 gosub10000
+  869 print"{clr}{down} saavut kaupunkiin ja menet hotelli-"
+  870 print"huoneeseesi . ker[[t kamppeesi ja"
+  871 print"h[ivyt hotellista miehilt[ p\llim[ll[si"
+  872 print"toyota hi-acella ."
+  873 gosub10000
+  874 print"l[hdet ajamaan ruotsin l[pi tornioon."
+  875 print"{clr}{down} tullissa sinulla ei ole mit[[n"
+  876 print"vaikeuksia."
+  877 gosub 10000:print"{clr}{down} ajat ruotsin l[pi .":gosub 10000
+  878 print"{clr}{down} pys[hdyt er[[lle huoltoasemalle .":gosub 10000
+  879 print"{clr}{down} yrit[t selitt[[ miehelle , ett[ "
+  880 print" hauluaisit tankin t[yteen bensaa."
+  881 input"mit[ sanot ";s$
+  882 ifleft$(s$,4)="bens"then885
+  883 print"{down} mies ei ymm[rt[nyt."
+  884 print"{home}{down}{down}":goto881
+  885 print"mies t[ytt[[ tankkisi bensalla ."
+  886 print"{down} se maksaa 200 mk":ra=ra-200:print"{down}sinulle j[i rahaa "ra"mk"
+  887 gosub10000
+  888 print"{clr}{down} saavut tornioon ."
+  889 print"{down} jostain syyst[ autosi hajoaa ja "
+  890 print" joudut ottamaan taksin ."
+  891 print"{down} p[[set mukavasti oulun lentokent[lle"
+  892 print"saakka,tosin matka maksoi 200 mk .":ra=ra-200:print"rahaa j[i "ra"mk"
+  893 gosub10000
+  894 print"{clr}{down} n[et saabisi parkkipaikalla."
+  895 print" menet sis[[n ja k[ynnist[t auton."
+  896 print"{down} tskutskutsukuprrrnnn ...vroommm .."
+  897 gosub 10000
+  898 print"{clr}{down} ajat rauhallisesti helsinnkiin.":gosub10000
+  899 print"{clr}{down}{down}{down}{down}  vrooooommmm !!! kriits !!!":gosub 10000
+  900 print"{clr}{down} saavut toimistollesi my\h[[n y\ll[."
+  901 print"{down} nukut rauhallisesti aamuun saakka ."
+  902 print"{down}{down}  krooh... pyyyyhh...":gosub 10000:print"{clr}{down}{down}{down}{down}{down}{down} zz z zzzzzzz"
+  903 fora=5000to1step-1:next
+  904 gosub 10000
+  905 print"{clr}{down} her[[t tuolissasi aamulla kun satu"
+  906 print" avaa ovesi . - kaapo ! mit[ sin[ t[[l-"
+  907 print" l[ teet ? ,kysyy satu .
+  908 print"- tota noin niin ku ...[h..."
+  909 print" nukuin t[[ll[ y\n ,en jaksanut menn["
+  910 print"kotiin . on l[hdett[v[ ranskaan.tuletko"
+  911 print" mukaan ? ,kysyt sadulta ."
+  912 print"- tulen . mutta mit[ me siell[ ?"
+  913 print" selit[t sadulle,mit[ on tapahtunut."
+  914 print"- ahaa . siis ty\matka . sitten en"
+  915 print" taidakaan tulla ..."
+  916 print" ai niin ,siin[ on anderssonilta saadut"
+  917 print" rahat . viisi tuhatta markkaa."
+  918 print" ,sanoo satu ja menee huoneeseensa ."
+  919 ra=ra+5000:print"sinulla on nyt rahaa "ra"mk ."
+  920 gosub10000
+  921 print"{clr}{down} k[yt vaihtamassa vaattesi ja sy\t"
+  922 print" kaksi paahtoleip[[ ."
+  923 print" menet autotalliin ja otat letkulla"
+  924 print"saabin tankista bensaa porschen "
+  925 print" tankiin sen verran ,ett[ p[[set l[him-"
+  926 print" m[lle huoltoasemalle.":gosub 10000
+  927 print"{clr}{down} starttat porschen . se k[ynnistyi"
+  928 print" moitteetomasti . ajat ulos tallista ja"
+  929 print" kaasuttelet kilsan p[[ss[ olevalle"
+  930 print" essolle . tankin t[ytt[minen maksoi"
+  931 print" 200 markkaa .":ra=ra-200:print"sinulle j[i rahaa "ra" mk ."
+  932 gosub10000
+  933 print"{clr}{down}k[yt ranskan suurl[hetyst\ss[ hakemassa"
+  934 print"viisumin.k[yt varaamassa laivamatkan"
+  935 print"l[nsi-saksaan .matka maksaa 1000 mk .":ra=ra-1000
+  936 print" muihin asioihin j[i rahaa "ra" mk ."
+  937 print"   (first class in silja-line)"
+  938 print" l[hdet ajamaan kotiin ."
+  939 gosub 10000
+  940 print"{clr}{down} kotona.mit[ teet :"
+  941 print"1. menet sis[[n"
+  942 print"2. menet autotalliin ."
+  943 gosub11000
+  944 ifa$="1"then955
+  945 ifa$="2"then950
+  946 goto943
+  950 print"{clr}{down} menet autotalliin ."
+  951 print" katselet ymp[rillesi ,mutta et n[e"
+  952 print" mit[[n mielenkiintoista ."
+  953 print" siisp["
+  954 gosub10000
+  955 print"{clr}{down} menet sis[[n taloon"
+  956 print" k[yt sy\m[ss[ kunnon v[lipalan ja"
+  957 print"sen j[lkeen menet pakkaamaan tava-"
+  958 print"roitasi .":gosub10000
+  959 print"{clr}{down} l[hdet kotoasi ja"
+  960 print"{down}{down} ajat satamaan ."
+  961 gosub 10000
+  962 print"{clr}{down} ajat sis[[n laivaan ."
+  963 print"{down} otat matkalaukkusi ja menet hyttiisi ."
+  964 print"{down} soitat huonepalveluun ja tilaat"
+  965 print" ison shampanjacoctailin ."
+  966 print"{down}{down}{down} matka sujuu mukavasti lyypekkiin"
+  967 print" saakka.":gosub 10000
+  968 print"{clr}{down} ajat ulos laivasta ."
+  969 print" menet e4-tielle ja ajat kahtaasataa"
+  970 print" hampuriin saakka,jossa k[yt sy\m[ss[."
+  971 gosub10000:print"{clr}{down}jatkat ajoa e4:ll[ mutta vaihdat e3:lle,"
+  972 print"koska haluat menn[ bonnin ja brysselin"
+  973 print" kautta ranskaan .":gosub10000
+  974 print"{clr}{down}{down}{down} ajat noin kahtaasataa kahtaakymppi[ ."
+  975 print" taaksesi ilmestyy joku bemari ."
+  976 print" se aikoo kai ohittaa sinut ."
+  977 print"mit[ teet :"
+  978 print"1. annat sen menn[ suosiolla ohi"
+  979 print"2. painat nastan lautaan"
+  980 gosub11000
+  981 ifa$="1"then985
+  982 ifa$="2"then990
+  983 goto980
+  985 print"{clr}{down} hiljenn[t vauhtiasi."
+  986 print" n[et vain p\lypilven kun bemari ajaa"
+  987 print" ohitsesi . se oli loukkaus omanarvon-"
+  988 print" tuntoosi.":gosub10000
+  989 goto1000
+  990 print"{clr}{down} et paina kaasua viel[ ihan pohjaan ."
+  991 print" nopeusmittarin neula on 250 kohdalla ."
+  992 print" bemari roikkuu viel[ kannoillasi .":gosub10000
+  993 print"{clr}{down} painat lusikan pohjaan ."
+  994 print"{down} nopeusmittarin viisari on nyt 280"
+  995 print"kohdalla. voitit taistelun !!"
+  996 gosub 10000
+ 1000 print"{clr}{down} saavut ranskan rajalle ."
+ 1001 print"{down} joudut jonottamaan ties kuinka kauan."
+ 1002 gosub10000:print"{clr}{down}   jonotat p[[sy[ tulliin ...   ":fora=1to10000:next
+ 1003 print"{clr}{down} p[[sit vihdoinkin ranskaan ."
+ 1004 print"{down} lahdet ajamaan rajoitusten mukaisesti"
+ 1005 print" kohti deauville[."
+ 1006 fora=1 to15:gosub10000:print"{clr}":next:
+ 1007 print"{down} saavut deauvilleen ."
+ 1008 print"{down} kysyt paikallisilta asukkailta , miss["
+ 1009 print"on 12 rue d'avignon ."
+ 1010 print"{down} saat tiedon ja ajat sinne."
+ 1011 gosub 10000:print"{clr}{down} menet sis[[n taloon ."
+ 1012 print"{down} l\yd[t huoneen oven,jossa lukee :"
+ 1013 print"     jean de'tappakov"
+ 1014 print"{down} menet sis[[n huoneeseen."
+ 1015 gosub 10000
+ 1016 print"{clr}{down} n[et p\yd[ll[ kirjeen jossa lukee :"
+ 1017 print"paikka: l[ntisen lontoon 2. metrotunneli"
+ 1018 print"aika: 6.4 kello 23.30 paikallista aikaa"
+ 1019 print"{down} mit[ teet :"
+ 1020 print"1. l[hdet ajamaan englantiin"
+ 1021 print"2. menet nukkumaan paikalliseen          majataloon"
+ 1022 gosub11000
+ 1023 ifa$="1"then1026
+ 1024 ifa$="2"then1040
+ 1025 goto1022
+ 1026 print"{clr}{down} l[hdet ajamaan lontoota kohti ."
+ 1027 print" ajat kahtaasataa ."
+ 1028 print"{down}{down}{down}{down} ajat kahtaa ja puoltasataa ."
+ 1029 print"{down}{down}{down}{down} ajat nasta laudassa ."
+ 1030 gosub10000
+ 1031 print"{clr}{down} on jo y\ ja nukahdat rattiin ."
+ 1032 print"{CBM-A}{SHIFT-*} {CBM-A}{SHIFT-*}{CBM-S}{CBM-A}{SHIFT-*}{CBM-S}{CBM-A}{SHIFT-*}{CBM-S}{CBM-S} {CBM-A} {rvon} {rvof} "
+ 1033 print"]  ] ]] ]]  ] ] {rvon} {rvof} "
+ 1034 print"]  ] ]] ]]  ] ] {rvon} {rvof} "
+ 1035 print"]  {CBM-Q}{CBM-R}{CBM-X}{CBM-Q}{SHIFT-*}{CBM-W}{CBM-Z}{SHIFT-*}{CBM-S}{CBM-Q}{SHIFT-*}{CBM-W} {rvon} {rvof} "
+ 1036 print"]  ]] ] ]  ]] ]     "
+ 1037 print"{CBM-Z}{SHIFT-*} {CBM-X}{CBM-Z} {CBM-X} {CBM-Z}{CBM-Z}{SHIFT-*}{CBM-X}{CBM-X} {CBM-Z} {rvon} {rvof} "
+ 1038 print"{down} ajoit vastaantulevaa autoa p[in ."
+ 1039 print" kuolit .":goto20000
+ 1040 print"{clr}{down} menet paikalliseen majataloon ."
+ 1041 print"{down} varaat huoneen . se maksaa 100 mk ."
+ 1042 ra=ra-100:print"sinulle j[i rahaa "ra" mk .":gosub 10000
+ 1043 print"{clr}{down}{down} nukut makeasti koko y\n."
+ 1044 fora=1to10000:next
+ 1045 print"{clr}{down} aamu on jo pitk[ll[ kun her[[t ja"
+ 1046 print"sy\t aamupalan."
+ 1047 print"katsot kelloasi (citizen ana-digi 100m)"
+ 1048 print" kello on puoli kymmenen ja p[iv[m[[r["
+ 1049 print" on 06. 04. 1987 ."
+ 1050 print"{down} aamupalan sy\ty[si l[hdet ajelemaan"
+ 1051 print" englantia kohti ."
+ 1052 print"{down} vrooooommm ..."
+ 1053 gosub10000
+ 1054 print"{clr}{down} olet englannin kanaalin rannalla ."
+ 1055 print" odotat autossasi p[[sy[ ilmatyyny-"
+ 1056 print"alukseen ."
+ 1057 fora=1to10000
+ 1058 next
+ 1059 print"{clr}{down} p[[sit sis[[n ilmatyynyalukseen ."
+ 1060 print"ylit[t englannin kanaalin 1/2 tunnissa."
+ 1061 print"matkasi maksoi 190 mk .":ra=ra-190
+ 1062 print" rahaa j[i "ra" mk ."
+ 1063 gosub10000
+ 1064 print"{clr}{down} ajat porschellasi lontoota kohti ."
+ 1065 print" matka sujuu rauhallisesti .":gosub10000
+ 1066 print "{clr}{down} saavut lontooseen."
+ 1067 print"{down} menet heti ravintolaan."
+ 1068 print"mit[ tilaat :"
+ 1069 print"1. day's special offer"
+ 1070 print"2. fish and chips"
+ 1071 gosub11000
+ 1072 ifa$="1"then1075
+ 1073 ifa$="2"then1080
+ 1074 goto1071
+ 1075 print"{clr}{down} tilaat p[iv[n erikoisen .":print"{down} se on ranskalaiset ja lehtipihvi."
+ 1076 print"{down} -sattuipa juuri mieliruokaani ,"
+ 1077 print" ajattelet sy\dess[si ."
+ 1078 gosub10000
+ 1079 goto1085
+ 1080 print"{clr}{down} tilaat kalaa ja ranskiksia."
+ 1081 print"{down}et tainnut muistaa , ettet pid[ kalasta"
+ 1082 print"ja sy\miseen tuhrautuu luvattoman paljon"
+ 1083 print"{up} aikaa."
+ 1084 gosub10000
+ 1085 print"{clr}{down} mit[ tilaat juomaksi :"
+ 1086 print"1. grapefruit juice"
+ 1087 print"2. ice tea"
+ 1088 print"3. soft drink"
+ 1089 print"4. ale"
+ 1090 print"5. scotch bourbon with ice"
+ 1091 print"6. white vine"
+ 1092 print"7. milk shake"
+ 1093 print"8. champagne"
+ 1094 gosub11000
+ 1095 ifa$="1"then1110
+ 1096 ifa$="2"then1120
+ 1097 ifa$="3"then1130
+ 1098 ifa$="4"then1140
+ 1099 ifa$="5"then1150
+ 1100 ifa$="6"then1160
+ 1101 ifa$="7"then1170
+ 1102 ifa$="8"then1180
+ 1103 goto1094
+ 1110 print"{clr}{down} otat greippimehua."
+ 1111 print" se on ihan hyv[[."
+ 1112 print" h\r[set juoman loppuun ja l[hdet pois"
+ 1113 print" ravintolasta"
+ 1114 goto1200
+ 1120 print"{clr}{down} otat j[[teet[ . se oli ihan juotavaa,"
+ 1121 print"tosin v[h[n kylm[[ ."
+ 1122 print" nautistelet teesi loppuun ja"
+ 1123 print" h[ipp[set ravintolasta."
+ 1124 goto1200
+ 1130 print"{clr}{down} tilaat virvoitusjuoman."
+ 1131 print"{down} saat keltaista jaffaa ."
+ 1132 print"{down} juodessasi ajattelet , ett[ kyll["
+ 1134 print"englantilaisetkin osaavat tehd[ limua."
+ 1135 print" j[t[t pullon p\yd[llesi ja hiippailet"
+ 1136 print" ulos ravintolasta ."
+ 1137 goto1200
+ 1140 print"{clr}{down} tilaat vaaleaa olutta."
+ 1141 print" et erikoisemmin pid[ oluesta."
+ 1142 print" h[ivyt v[hin [[nin ravintolasta."
+ 1143 goto1200
+ 1150 print"{clr}{down} tilaat skottiviski[ ."
+ 1151 print" se sattui olemaan aika vahvaa, joten"
+ 1152 print" hoipertelet ulos ravintolasta ."
+ 1153 goto1200
+ 1160 print"{clr}{down} otat valkoviini[ ."
+ 1161 print"{down} mielest[si valkoviinin kanssa pit[isi"
+ 1162 print" olla jotain sy\mist[ ."
+ 1163 print" k[velet pois ravintolasta."
+ 1164 goto1200
+ 1170 print"{clr}{down} otat pirtel\[ ."
+ 1171 print" h\r[iset mansikkapirtel\n aika"
+ 1172 print" vauhdikkaasti ja"
+ 1173 print" poistut ravintolasta."
+ 1174 goto1200
+ 1180 print"{clr}{down} tilaat shampanjaa ."
+ 1181 print" mmm... erinomaista laatua."
+ 1182 print" pid[t shampanjasta ja nautistklet"
+ 1183 print" sen hyvin hitaasti ja"
+ 1184 print" poistut ravintolasta."
+ 1185 goto1200
+ 1200 gosub 10000:print"{clr}{down} olet juuri astumassa ulos ovesta kun"
+ 1201 print" baarimikko huutaa sinulle jotain :"
+ 1202 print" hey mister ! you forgot to pay !!"
+ 1203 print"{down} tietysti ! unohdit maksaa.j[t[t"
+ 1204 print"l[himm[lle p\yd[lle 10 punnan setelin ."
+ 1205 print" se on t[m[nhetkisten kurssien mukaan"
+ 1206 print" noin 75 markkaa.":ra=ra-75
+ 1207 print" rahaa j[i "ra" mk."
+ 1208 gosub10000
+ 1300 ra$=str$(ra):r1$=left$(ra$,3):r2$=right$(ra$,2):r1=val(r1$):r2=val(r2$)
+ 1301 poke49152,r1:poke49153,r2
+ 1310 ifr2$="00"thenpoke49154,100
+ 1350 print"{clr}load"chr$(34)"3.kaapo part2"chr$(34)",8"
+ 1352 print"{down}{down}{down}{down}run"
+ 1353 poke631,19:poke632,13:poke633,13:poke198,3:
+ 9999 stop
+ 10000 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"
+ 10001 print"      paina jotain n[pp[int[ ..."
+ 10010 poke198,0
+ 10020 getw$:ifw$=""then10020
+ 10030 return
+ 10500 print"{down} sammutat radion ja py\r[hd[t ymp[ri."
+ 10501 print"sis[[n hypp[[ mies,jolla on k[det"
+ 10502 print"t[ynn[ heittoveisi[.h[n heitt[[ veitsen"
+ 10503 print",joka osuu suoraan syd[meesi.kuolet.":goto20000
+ 11000 geta$
+ 11001 ifa$="1"thenreturn
+ 11002 ifa$="2"thenreturn
+ 11003 ifa$="3"thenreturn
+ 11004 ifa$="4"thenreturn
+ 11005 ifa$="5"thenreturn
+ 11006 ifa$="6"thenreturn
+ 11007 ifa$="7"thenreturn
+ 11008 ifa$="8"thenreturn
+ 11009 ifa$="\"then12000
+ 11010 goto11000
+ 12000 input"haluatko lopettaa (k/e)";l$
+ 12002 ifl$="k"thenprint"{clr}{down}{down}  lopetat siis raukkamaisesti."
+ 12004 ifl$="k"thensys64738
+ 12006 ifl$="e"then11000
+ 12008 print"{up}{up}{up}":goto12000
+ 13000 print" kidnapattiin . sinulla ei ole ainutta-"
+ 13001 print"kaan johtolankaa. joten olet pallo"
+ 13002 print" hukassa tiet[m[tt[ muuta kuin ,"
+ 13003 print" ett[ joku murhattiin jossain muualla ."
+ 13004 print" seikkailusi loppui t[h[n ."
+ 13005 goto20000
+ 20000 gosub 10000
+ 20010 input"{clr}{down}{down} haluatko uuden pelin (k/e) ";up$
+ 20020 ifup$="k"thenrun
+ 20030 ifup$="e"thenpoke4101,255
+ 20040 ifup$="e"thensys64738
+ 20050 print"{up}{up}{up}":goto20010
+

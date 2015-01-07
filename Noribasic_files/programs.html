@@ -1,0 +1,291 @@
+
+<!-- saved from url=(0045)http://www.kesiev.com/noribasic/programs.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><script>
+var programs=new Array();
+var progcnt=0;
+
+function LIST_addprogram(name,comment,src) {
+	programs[progcnt]=new Array();
+	programs[progcnt]["src"]=src;
+	programs[progcnt]["name"]=name;
+	programs[progcnt]["comment"]=comment;
+	progcnt++;
+}
+
+function LIST_print() {
+	document.write("<table cellpadding=0 cellspacing=4 border=0 width=100% style=\"font-family:monospace; font-size:11px;\">");	
+	for (i=0;i<progcnt;i++) {
+		document.write("<tr><td width=30 align=\"right\">");
+		for (z=0;z<3-i.toString().length;z++) {document.write("0"); }
+		document.write("<b>"+i+"</b></td>");
+		document.write("<td width=30 align=center><img src=\"BASIC.gif\" border=0></td><td><font style=\"cursor:pointer\" onClick=\"top.BASIC_load(programs["+i+"]['src'],programs["+i+"]['comment'])\">"+programs[i]['name']+".prg</font></td>");
+		document.write("</tr>");
+	}
+		document.write("</table>");
+}
+
+</script>
+
+<script>
+LIST_addprogram("new","READY?",'');
+
+LIST_addprogram("helloworld","You can't miss it...",'10 PRINT "Hello world!"');
+
+LIST_addprogram("colors","Acid colors... unuseful text... gotoxy... ahhh... old good days...",''+
+'5 FOR I$=1 TO 40\n'+
+'10 PRINT "Say \'hi!\' to line ";I$\n'+
+'20 IF I$=10 THEN SETCOLOR "yellow","green"\n'+
+'30 IF I$=20 THEN SETCOLOR "blue","white"\n'+
+'40 IF I$=30 THEN SETCOLOR "white","black"\n'+
+'50 IF I$=40 THEN SETCOLOR "black","white"\n'+
+'60 NEXT I$\n'+
+'70 SETCOLOR "yellow","green"\n'+
+'80 GOTOXY 10,10\n'+
+'90 PRINT "hello GOTOXY!"\n'+
+'');
+
+LIST_addprogram("Spritetest","A tiny sprite test. Well... Noribasic supports some commands for sprite handling... with a MAX of 8 sprites... like the old C64!",''+
+'5 GOTOXY 0,1:PRINT "Use QAZX for moving..."\n'+
+'6 SPRLOAD 0,"keyboard.gif"\n'+
+'7 SPRLOAD 1,"BASIC.gif"\n'+
+'10 SPRCLS\n'+
+'20 X$=20:Y$=20:SPRON 0:spron 1\n'+
+'30 SPRMOVE 0,X$,Y$:SPRMOVE 1,30,30\n'+
+'40 T$=INKEY()\n'+
+'47 GOTOXY 0,0:PRINT X$;",";Y$;" "\n'+
+'48 GOTOXY 0,2\n'+
+'49 IF (SPRCOLLIDE(0,1)) THEN PRINT "COLLIDE    ":GOTO 51\n'+
+'50 PRINT "NOT COLLIDE"\n'+
+'51 IF (T$=81) THEN Y$=Y$-4\n'+
+'60 IF (T$=65) THEN Y$=Y$+4\n'+
+'70 IF (T$=90) THEN X$=X$-4\n'+
+'80 IF (T$=88) THEN X$=X$+4\n'+
+'90 GOTO 30\n'+
+'');
+
+LIST_addprogram("1to10","A nice for cycle... in a line.",'10 FOR i$=1 to 10:print i$:next i$');
+
+LIST_addprogram("guess2players","Guess the number for 2 players... LOL! Featuring case-insensitivity test...",''+
+'10 print "Number to guess";\n'+
+'20 INPUt iNDOVINA$\n'+
+'30 CLS\n'+
+'40 t$=0\n'+
+'50 T$=t$+1\n'+
+'60 PRInT "Try ";T$\n'+
+'70 INPUT Te$\n'+
+'80 If tE$>INDOvINA$ THEN PRINT "The number is lower!": GOTO 50\n'+
+'90 IF Te$<InDOVINA$ THEN PRINT "The number is higher!": GOTO 50\n'+
+'100 PRINT "You did it in ";T$;" tries!"\n'+
+'110 END\n'+
+'');
+
+LIST_addprogram("data","Reading data... featuring the infamous <i>Out of data</i> error!",''+
+'5 RESTORE\n'+
+'10 FOR i$=1 to 10\n'+
+'20 READ A$\n'+
+'30 PRINT "LINE ";i$;" is: ";a$\n'+
+'40 NEXT I$\n'+
+'50 DATA "this","is","just","a","test","..."\n'+
+'');
+
+LIST_addprogram("gotoandgosub","Goto and gosub around... the first line avoid a stack disaster... try to delete that line! :)",''+
+'2 GOTO 10\n'+
+'5 RETURN\n'+
+'10 FOR I$=10 TO 12 STEP 2\n'+
+'20 PRINT "VALUE ";I$;"+2=";(I$+2)\n'+
+'30 NEXT I$\n'+
+'100 PRINT "Base! GOSUBbing to 1000"\n'+
+'110 GOSUB 1000\n'+
+'120 PRINT "Back!"\n'+
+'130 END\n'+
+'1000 PRINT "Subroutine at 1000"\n'+
+'1010 GOSUB 2000\n'+
+'1020 PRINT "1K Zone...Back from 2000"\n'+
+'1030 PRINT "Going to main"\n'+
+'1040 RETURN\n'+
+'2000 PRINT "Hi! I\'m 2000"\n'+
+'2010 PRINT "Going back to 1000"\n'+
+'2020 RETURN\n'+
+'');
+
+LIST_addprogram("functions","Lotsa of functions... and error trapping!",''+
+'10 REM This is a test!\n'+
+'20 PRINT "Trap to line 1000!"\n'+
+'30 TRAP 1000\n'+
+'35 PRINT "POW 10,2: ";POW(10,2)\n'+
+'40 PRINT "ABS: ";ABS(-10)\n'+
+'50 PRINT "COS: ";COS(-10)\n'+
+'60 PRINT "SIN: ";SIN(-10)\n'+
+'70 PRINT "TAN: ";TAN(-10)\n'+
+'80 PRINT "ACOS: ";ACOS(1)\n'+
+'90 PRINT "ASIN: ";ASIN(1)\n'+
+'100 PRINT "ATAN: ";ATAN(1)\n'+
+'110 PRINT "SQR: ";SQR(1)\n'+
+'120 PRINT "MOD: ";MOD(10,3)\n'+
+'130 PRINT "VAL: ";VAL("10 apples")\n'+
+'140 PRINT "MID$: ";MID$("1234567890", 3,6)\n'+
+'150 PRINT "ASCII of Z: ";ASC("Z")\n'+
+'160 PRINT "CHR 65 is: ";CHR$(65)\n'+
+'170 PRINT "LEFT$: ";LEFT$("AEIO",2)\n'+
+'180 PRINT "RIGHT$: ";RIGHT$("AEIO",2)\n'+
+'190 PRINT "Sleeping 500..."\n'+
+'200 SLEEP 500\n'+
+'210 PRINT "Wake up!"\n'+
+'220 PRINT "Hello is ";LEN("hello");" letters long!"\n'+
+'230 PRINT "A random number: ";RND(0)\n'+
+'240 PRINT "And now... trap error!"\n'+
+'250 ERROR! SYNTAX ERROOOR!\n'+
+'1000 PRINT "Error catched: ";ERR(0)\n'+
+'');
+
+LIST_addprogram("adventure","Arrays, NSEW keys, forks and <i>play again</i>! Need a map?<br>H####<br>##..#<br>.B...<br>.B###<br>..#.T<br>(<b>H</b>elicopter, <b>B</b>ridge, <b>T</b>resaure)",''+
+'10 DIM map$(5,5)\n'+
+'20 map$(0,0)="You hear your helicopter. You\'ve just landed on the island. There is a tresaure... but where is it?"\n'+
+'30 map$(1,0)="Your helicopter is far. There is a lot of grass. Two trees and nothing more."\n'+
+'40 map$(2,0)="A little piece of ground. Under you, the waterfalls."\n'+
+'50 map$(3,0)="The little road continues. There is a strange big fruit on a tree."\n'+
+'60 map$(4,0)="Some lines on a rock. \'Go south\'."\n'+
+'70 map$(0,1)="The helicopter is far. Under you, the blue deep sea."\n'+
+'80 map$(1,1)="More grass. Flowers everywhere. A brige cross the sea on south."\n'+
+'90 map$(4,1)="You see on the other side of the coast the tresaure chest! But around you, sea. Better go back to the helicopter..."\n'+
+'100 map$(1,2)="The little bridge continues..."\n'+
+'110 map$(1,3)="The bridge finishes here. On east there are some rocks and a rocky solid ground."\n'+
+'120 map$(2,3)="A snake attacks try to bite you but you kill them with your knife. Then... silent. You hear waterfalls from north."\n'+
+'130 map$(3,3)="Sand and rocks continues. The water is finished and you feel weak... you see a tiny chest on south."\n'+
+'140 map$(4,3)="On south you see something shining... On the other side you see a rock written with small characters..."\n'+
+'150 map$(2,4)="Nothing around you... Everything is scary..."\n'+
+'160 map$(4,4)="You found a little chest... it\'s the tresaure! You did it!"\n'+
+'170 x$=0:y$=0:moves$=0\n'+
+'175 if (x$<0) THEN x$=0\n'+
+'176 if (x$>4) THEN x$=4\n'+
+'177 if (y$<0) THEN y$=0\n'+
+'178 if (y$>4) THEN y$=4\n'+
+'180 cls:print "[Adventure!]"\n'+
+'185 if map$(x$,y$)=0 THEN goto 1000\n'+
+'190 print map$(x$,y$)\n'+
+'195 if (x$=4) and (y$=4) THEN goto 1010\n'+
+'200 print "Command? [N/S/E/W]";\n'+
+'210 input dir$\n'+
+'215 moves$=moves$+1\n'+
+'220 if dir$="n" then y$=y$-1:goto 175\n'+
+'220 if dir$="s" then y$=y$+1:goto 175\n'+
+'220 if dir$="e" then x$=x$+1:goto 175\n'+
+'220 if dir$="w" then x$=x$-1:goto 175\n'+
+'230 print "Can\'t understand..."\n'+
+'240 goto 200\n'+
+'1000 print "You fallen into the deep see! You died!"\n'+
+'1010 print "Game ended after ";moves$;" moves."\n'+
+'1020 print "Play again? [Y/N]"\n'+
+'1030 input r$\n'+
+'1040 if r$="y" then goto 170\n'+
+'1050 print "Thanks for playing!"\n'+	
+'');
+
+LIST_addprogram("woops","Damn... variables needs $ and NEXT ever needs the NEXTed variable... sorry!",''+
+'10 DATA 1,2,3,4\n'+
+'20 DATA 5,6,7,8\n'+
+'30 FOR L$= 1 TO 8\n'+
+'40 READ A$: PRINT A$\n'+
+'50 NEXT L$\n'+
+'60 RESTORE\n'+
+'70 FOR L$= 1 TO 8\n'+
+'80 READ A$: PRINT A$\n'+
+'90 NEXT L$\n'+
+'');
+
+LIST_addprogram("proud","Taken from the Commodore PET manual!",''+
+'10 PRINT"THIS IS THE PROGRAM"\n'+
+'20 GOSUB 1000\n'+
+'30 PRINT"PROGRAM CONTINUES"\n'+
+'40 GOSUB 1000\n'+
+'50 PRINT"MORE PROGRAM"\n'+
+'60 END\n'+
+'1000 PRINT"THIS IS THE GOSUB":RETURN\n'+
+'');
+
+LIST_addprogram("ppot","The <a href=\"http://www.pressplayontape.com/\">PPOT Band</a> made a nice easter egg in their last album. There was a secret BASIC source somewhere... try this adapted version!",''+
+'10 RESTORE:D$=0\n'+
+'20 READ A$:IF A$=256 THEN GOTO 40\n'+
+'30 A$=A$+D$:D$=A$:PRINT CHR$(A$);:GOTO 20\n'+
+'40 PRINT:DATA 87,0,0,-41,34,2,-13,14,0\n'+
+'50 DATA -3,-4,-11,24,-10,-1,6,-19,15\n'+
+'60 DATA -11,-23,21,12,-2,-30,26,14,-22\n'+
+'70 DATA 13,6,0,-5,-12,5,-3,-4,19,256\n'+
+'');
+
+
+LIST_addprogram("reference","Noribasic manual in <b>REAL</b> commodore style...",''+
+'10 RESTORE\n'+
+'30 READ command$:READ desc$\n'+
+'40 if command$="*" THEN GOTO 110\n'+
+'50 setcolor "white","black":cls\n'+
+'60 setcolor "red","black":print command$:print\n'+
+'70 setcolor "white","black":print desc$\n'+
+'75 print:setcolor "green","white":print "Press [SPACE]."\n'+
+'80 k$=INKEY()\n'+
+'90 IF k$<>32 THEN GOTO 80\n'+
+'100 GOTO 30\n'+
+'110 CLS:gotoxy 5,9:PRINT "Enjoy Noribasic!"\n'+
+'120 k$=INKEY()\n'+
+'130 IF k$<>32 THEN GOTO 120\n'+
+'140 CLS:END\n'+
+'1000 DATA "+ - * / > < <= >= <>","Funny math/logical operators"\n'+
+'1010 DATA "AND OR NOT","More operators..."\n'+
+'1020 DATA "x BITOR y","Bit OR"\n'+
+'1030 DATA "x BITAND y","Bit AND"\n'+
+'1040 DATA "x BITXOR y","Bit XOR"\n'+
+'1050 DATA "ASC(x)","Ascii code of a char"\n'+
+'1060 DATA "CHR$(x)","Ascii to char"\n'+
+'1070 DATA "LEFT$(x,n)","Left hand part of a string"\n'+
+'1080 DATA "RIGHT$(x,n)","Right hand of a string"\n'+
+'1090 DATA "RND()","A random number"\n'+
+'1100 DATA "ERR()","Last trapped error"\n'+
+'1110 DATA "ABS(x)","Absolute value"\n'+
+'1120 DATA "COS(x)","Cosinus"\n'+
+'1130 DATA "SIN(x)","Sinus"\n'+
+'1140 DATA "TAN(x)","Tangent"\n'+
+'1150 DATA "ACOS(x)","Arcosinus"\n'+
+'1160 DATA "ASIN(x)","Arcsinus"\n'+
+'1170 DATA "ATAN(x)","Arctangent"\n'+
+'1180 DATA "LOG(x)","Log"\n'+
+'1190 DATA "MOD(val,div)","Module"\n'+
+'1200 DATA "SQR(x)","Square root"\n'+
+'1210 DATA "TAN(x)","Tangent"\n'+
+'1220 DATA "POW(x,y)","Power!"\n'+
+'1230 DATA "INKEY()","Get a key from the keyboard"\n'+
+'1240 DATA "MID$(str,from,ln)","Middle part of a string"\n'+
+'1250 DATA "LEN(str)","Length of a string"\n'+
+'1260 DATA "PRINT stuff","Prints on screen"\n'+
+'1270 DATA "CLS","Clear the screen"\n'+
+'1280 DATA "END","End program"\n'+
+'1290 DATA "REM stuff","Comments"\n'+
+'1300 DATA "SLEEP time","Pauses program"\n'+
+'1310 DATA "TRAP line","On error go to line"\n'+
+'1320 DATA "DIM var$(siz1,siz1,siz...)","Prepare an array"\n'+
+'1330 DATA "INPUT variable$","Input from keyboard"\n'+
+'1340 DATA "GOTO line","Go to line :)"\n'+
+'1350 DATA "GOSUB line","Go to line and back with RETURN"\n'+
+'1360 DATA "STOP","Break program"\n'+
+'1370 DATA "READ var$","Read from data"\n'+
+'1380 DATA "GOTOXY x,y","Place the cursor on the screen"\n'+
+'1390 DATA "SETCOLOR fg,bg","Set colors"\n'+
+'1400 DATA "RESTORE","Restart DATA reading"\n'+
+'1410 DATA "RETURN","Back to the last GOSUB"\n'+
+'1420 DATA "IF exp THEN stuff","Conditional"\n'+
+'1430 DATA "FOR x$=xx TO xx (STEP xx) // NEXT","Cycle for/next"\n'+
+'1440 DATA "SPRON sprite","Turn on a sprite"\n'+
+'1450 DATA "SPRMOVE sprite,x,y","Move a sprite"\n'+
+'1460 DATA "SPROFF sprite","Turn off a sprite"\n'+
+'1470 DATA "SPRCLS","Clear all sprites"\n'+
+'1480 DATA "SPRLOAD sprite,filename","Loads a sprite"\n'+
+'1490 DATA "SPRCOLLIDE(spr1,spr2)","True if two sprites collides"\n'+
+'1500 DATA "*","*"\n'+
+'');
+</script>
+
+
+</head><body leftmargin="0" rightmargin="0" topmargin="0" bottommargin="0" bgcolor="#a0a1fe">
+<script>LIST_print()</script><table cellpadding="0" cellspacing="4" border="0" width="100%" style="font-family:monospace; font-size:11px;"><tbody><tr><td width="30" align="right">00<b>0</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[0][&#39;src&#39;],programs[0][&#39;comment&#39;])">new.prg</font></td></tr><tr><td width="30" align="right">00<b>1</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[1][&#39;src&#39;],programs[1][&#39;comment&#39;])">helloworld.prg</font></td></tr><tr><td width="30" align="right">00<b>2</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[2][&#39;src&#39;],programs[2][&#39;comment&#39;])">colors.prg</font></td></tr><tr><td width="30" align="right">00<b>3</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[3][&#39;src&#39;],programs[3][&#39;comment&#39;])">Spritetest.prg</font></td></tr><tr><td width="30" align="right">00<b>4</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[4][&#39;src&#39;],programs[4][&#39;comment&#39;])">1to10.prg</font></td></tr><tr><td width="30" align="right">00<b>5</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[5][&#39;src&#39;],programs[5][&#39;comment&#39;])">guess2players.prg</font></td></tr><tr><td width="30" align="right">00<b>6</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[6][&#39;src&#39;],programs[6][&#39;comment&#39;])">data.prg</font></td></tr><tr><td width="30" align="right">00<b>7</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[7][&#39;src&#39;],programs[7][&#39;comment&#39;])">gotoandgosub.prg</font></td></tr><tr><td width="30" align="right">00<b>8</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[8][&#39;src&#39;],programs[8][&#39;comment&#39;])">functions.prg</font></td></tr><tr><td width="30" align="right">00<b>9</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[9][&#39;src&#39;],programs[9][&#39;comment&#39;])">adventure.prg</font></td></tr><tr><td width="30" align="right">0<b>10</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[10][&#39;src&#39;],programs[10][&#39;comment&#39;])">woops.prg</font></td></tr><tr><td width="30" align="right">0<b>11</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[11][&#39;src&#39;],programs[11][&#39;comment&#39;])">proud.prg</font></td></tr><tr><td width="30" align="right">0<b>12</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[12][&#39;src&#39;],programs[12][&#39;comment&#39;])">ppot.prg</font></td></tr><tr><td width="30" align="right">0<b>13</b></td><td width="30" align="center"><img src="basic(1).gif" border="0"></td><td><font style="cursor:pointer" onclick="top.BASIC_load(programs[13][&#39;src&#39;],programs[13][&#39;comment&#39;])">reference.prg</font></td></tr></tbody></table>
+
+
+	</body></html>
