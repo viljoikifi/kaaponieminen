@@ -7,3 +7,5 @@ The game is CC licensed. Other components have *free'ish* licenses:
 C64 truetype font by Kreative Korporation - [license](font/FreeLicense.txt)
 
 [Noribasic](http://www.kesiev.com/noribasic/) "do what you want but pray for our almighty god #c64"
+
+![](startscreen.png)
